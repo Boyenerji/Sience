@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    /* background-color: #191919; */
+    background-color: #DCDCDC;
+}
+
+#hello_h1 {
+    color: black;
+    position: absolute;
+    top: 15%;
+}
+
+
+select {
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+
+#main_btn {
+    display: none;
+    margin-top: 20px;
+}
+
+#alert_info {
+    display: block;
+    position: absolute;
+    bottom: 15%;
+    margin-top: 20px;
+    display: none;
+    padding: 5px 10px;
+}
+
+#btn_next {
+    display: none;
+    position: absolute;
+    bottom: 10%;
+}
+
+
+.main {
+    width: 80%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 8px;
+}
+
+#btn_start {
+    display: flex;
+    /* margin: 0 auto; */
+    margin-top: 30px;
+    padding: 10px 20px;
+    font-size: 1.3em;
+    cursor: pointer;
+    background: #1E90FF;
+    border: none;
+    border-radius: 7px;
+    color: white;
+}
+
+
+.showWords {
+    font-size: 2.4em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.showWords p {
+    text-align: center;
+    color: black;
+}
+
+
+#blue {
+    color: #1E90FF;
+}
+
+#color {
+    color: #1E90FF;
+}
+
+#white {
+    color: black;
+}
+
+#color, #white {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 600px) {
+    .showWords {
+        font-size: 1.5em;
+    }
+
+}
+
+@media screen and (max-width: 400px) {
+    .showWords {
+        font-size: 1.4em;
+    }
+
+}
+
+
