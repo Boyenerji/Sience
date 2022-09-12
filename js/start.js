@@ -54,7 +54,7 @@ class wordsParam {
 }
 
 
-const wordOne = new wordsParam('Проворный', 'Быстрый, резвый'),
+const wordOne = new wordsParam('СПЗ', 'Система постановки завес'),
       wordTwo = new wordsParam('Тест2', 'Тестик2'),
       wordThree = new wordsParam('Тест3', 'Тестик3');
 
