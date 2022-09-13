@@ -71,7 +71,7 @@ function logger() {
     if (arrBig.length == 0) {
         delete_html();
     } else {
-        console.log('Выполнился');
+        alert_info.innerHTML = arrBig.length - 1;
         let i = randomInteger(0, arrBig.length-1);
         mainWord.innerHTML = arrBig[i].mainWord;
         descWord.innerHTML = arrBig[i].descWord;
@@ -130,6 +130,8 @@ btn.addEventListener('click', () => {
     btn.remove();
     select.remove();
     btn_next.style.display = 'block';
+    alert_info.style.display = 'block';
+
 });
 
 
