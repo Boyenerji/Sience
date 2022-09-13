@@ -48,6 +48,9 @@ select {
     color: #fff;
 }
 
+select:hover {
+    cursor: pointer;
+}
 
 .mainWord {
     font-size: 2.8vh;
@@ -70,7 +73,6 @@ select {
 }
 
 #btn_start {
-    display: flex;
     /* margin: 0 auto; */
     margin-top: 30px;
     padding: 10px 20px;
