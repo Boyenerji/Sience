@@ -13,19 +13,32 @@ const btn = document.querySelector('#btn_start'),
       main = document.querySelector('.main'),
       alert_info = document.querySelector('#alert_info'),
       hello_h1 = document.querySelector('#hello_h1'),
+      picWord = document.querySelector('.picWord'),
       mainWord = document.querySelector('.mainWord'),
       descWord = document.querySelector('.descWord');
 
 class wordsParam {
-    constructor(mainWord, descWord) {
+    constructor(mainWord, descWord, pic) {
         this.mainWord = mainWord;
         this.descWord = descWord;
+        this.pic = pic;
     }
 }
 
-const wordOne = new wordsParam('СПЗ', 'Система постановки завес'),
-      wordTwo = new wordsParam('Планка Пикатинни', 'Система рельсового крепления'),
-      wordThree = new wordsParam('Тест3', 'Тестик3');
+const wordOne = new wordsParam(
+        'СПЗ (Система постановки завес)', 
+        'Система постановки завес. Аэрозольные гранаты для блокирования ПТУР с инфракрасными ГСН.', 
+        '<img src="../pictures/pic2.jpg" alt="img">'),
+
+      wordTwo = new wordsParam(
+        'Планка Пикатинни', 
+        'Система рельсового крепления для стрелкового оружия', 
+        '<img src="../pictures/pic1.jpg" alt="img">'),
+
+      wordThree = new wordsParam(
+        'Тест3', 
+        'Тестик3', 
+        '');
 
 const arrBig = [
     wordOne,
@@ -33,7 +46,7 @@ const arrBig = [
     wordThree
 ];
 
-console.log(arrBig.length);
+console.log(arrBig[0].pic);
 
 
 function logger() {
@@ -42,6 +55,8 @@ function logger() {
     } else {
         alert_info.innerHTML = arrBig.length - 1;
         let i = randomInteger(0, arrBig.length - 1);
+        picWord.innerHTML = arrBig[i].pic;
+        console.log(arrBig[i].pic);
         mainWord.innerHTML = arrBig[i].mainWord;
         descWord.innerHTML = arrBig[i].descWord;
         arrBig.splice(i, 1);
@@ -79,7 +94,7 @@ btn.addEventListener('click', () => {
     select.remove();
     btn_next.style.display = 'block';
     alert_info.style.display = 'block';
-
+    showWords.style.display = 'flex';
 });
 
 

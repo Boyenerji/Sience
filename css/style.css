@@ -11,6 +11,9 @@ body {
     /* background-color: #191919; */
     background-color: #DCDCDC;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 #hello_h1 {
@@ -56,14 +59,19 @@ select:hover {
     font-size: 2.8vh;
 }
 
+.mainWord, .picWord {
+    margin: 10px;
+}
+
 .descWord {
     font-size: 2.3vh;
     color: #696969;
+    text-align: center;
 }
 
 
 .main {
-    width: 40%;
+    width: 50%;
     margin: 0 auto;
     padding: 10px;
     display: flex;
@@ -74,7 +82,7 @@ select:hover {
 
 #btn_start {
     /* margin: 0 auto; */
-    margin-top: 30px;
+    margin-top: 20px;
     padding: 10px 20px;
     font-size: 1.3em;
     cursor: pointer;
@@ -87,7 +95,7 @@ select:hover {
 
 .showWords {
     font-size: 1.9vh;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -97,6 +105,11 @@ select:hover {
 .showWords p {
     text-align: center;
     color: black;
+}
+
+.showWords img {
+    width: 100%;
+    height: auto;
 }
 
 
@@ -122,19 +135,18 @@ select:hover {
     .main {
         width: 100%;
     }
-}
 
-/* @media screen and (max-width: 300px) {
-    .main {
-        min-width: 200px;
-    }
-} */
-
-@media screen and (max-width: 600px) {
     .showWords {
         font-size: 1.8vh;
     }
+
+    body {
+        flex-direction: column-reverse;
+    }
+
+
 }
+
 
 @media screen and (max-width: 400px) {
     .showWords {
