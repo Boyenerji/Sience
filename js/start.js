@@ -24,7 +24,7 @@ class wordsParam {
 }
 
 const wordOne = new wordsParam('СПЗ', 'Система постановки завес'),
-      wordTwo = new wordsParam('Тест2', 'Тестик2'),
+      wordTwo = new wordsParam('Планка Пикатинни', 'Система рельсового крепления'),
       wordThree = new wordsParam('Тест3', 'Тестик3');
 
 const arrBig = [
