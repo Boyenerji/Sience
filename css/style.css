@@ -144,7 +144,7 @@ select:hover {
     }
 
     body {
-        flex-direction: column-reverse;
+        justify-content: center;
     }
 
 

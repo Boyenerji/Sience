@@ -15,7 +15,8 @@ const btn = document.querySelector('#btn_start'),
       hello_h1 = document.querySelector('#hello_h1'),
       picWord = document.querySelector('.picWord'),
       mainWord = document.querySelector('.mainWord'),
-      descWord = document.querySelector('.descWord');
+      descWord = document.querySelector('.descWord'),
+      testImg = document.querySelector('#testImg');
 
 class wordsParam {
     constructor(mainWord, descWord, pic) {
@@ -25,20 +26,27 @@ class wordsParam {
     }
 }
 
+console.dir(testImg.src);
+
+
+
 const wordOne = new wordsParam(
         'СПЗ (Система постановки завес)', 
         'Система постановки завес. Аэрозольные гранаты для блокирования ПТУР с инфракрасными ГСН.', 
-        '<img src="../pictures/pic2.jpg" alt="img">'),
+        '/pictures/pic2.jpg'),
+        // '<img src="../pictures/pic2.jpg" alt="img">'),
+
+        // '<img src="../pictures/pic2.jpg" alt="img">'),
 
       wordTwo = new wordsParam(
         'Планка Пикатинни', 
         'Система рельсового крепления для стрелкового оружия', 
-        '<img src="../pictures/pic1.jpg" alt="img">'),
+        '/pictures/pic1.jpg'),
 
       wordThree = new wordsParam(
-        'Тест3', 
-        'Тестик3', 
-        '');
+        'Термобарические снаряды', 
+        'Снаряды, при взрыве образующие облако аэрозоля горючего вещества.', 
+        '/pictures/termo.jpg');
 
 const arrBig = [
     wordOne,
@@ -55,12 +63,12 @@ function logger() {
     } else {
         alert_info.innerHTML = arrBig.length - 1;
         let i = randomInteger(0, arrBig.length - 1);
-        picWord.innerHTML = arrBig[i].pic;
+        testImg.src = arrBig[i].pic;
         console.log(arrBig[i].pic);
         mainWord.innerHTML = arrBig[i].mainWord;
         descWord.innerHTML = arrBig[i].descWord;
         arrBig.splice(i, 1);
-        console.log(arrBig);
+        // console.log(arrBig);
     }
 }
 
