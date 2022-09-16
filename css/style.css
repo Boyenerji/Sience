@@ -144,7 +144,8 @@ select:hover {
     }
 
     body {
-        justify-content: center;
+        justify-content: flex-end;
+        margin-bottom: 10%;
     }
 
 

@@ -26,49 +26,67 @@ class wordsParam {
     }
 }
 
-console.dir(testImg.src);
 
 
 
-const wordOne = new wordsParam(
-        'СПЗ (Система постановки завес)', 
-        'Система постановки завес. Аэрозольные гранаты для блокирования ПТУР с инфракрасными ГСН.', 
-        '/pictures/pic2.jpg'),
-        // '<img src="../pictures/pic2.jpg" alt="img">'),
 
-        // '<img src="../pictures/pic2.jpg" alt="img">'),
+// const wordOne = new wordsParam(
+//         'СПЗ (Система постановки завес)', 
+//         'Система постановки завес. Аэрозольные гранаты для блокирования ПТУР с инфракрасными ГСН.', 
+//         '<img src="../pictures/pic2.jpg" alt="img">'),
+//         // '<img src="../pictures/pic2.jpg" alt="img">'),
 
-      wordTwo = new wordsParam(
-        'Планка Пикатинни', 
-        'Система рельсового крепления для стрелкового оружия', 
-        '/pictures/pic1.jpg'),
+//         // '<img src="../pictures/pic2.jpg" alt="img">'),
 
-      wordThree = new wordsParam(
-        'Термобарические снаряды', 
-        'Снаряды, при взрыве образующие облако аэрозоля горючего вещества.', 
-        '/pictures/termo.jpg');
+//       wordTwo = new wordsParam(
+//         'Планка Пикатинни', 
+//         'Система рельсового крепления для стрелкового оружия', 
+//         '<img src="../pictures/pic1.jpg" alt="img">'),
 
-const arrBig = [
-    wordOne,
-    wordTwo,
-    wordThree
+//       wordThree = new wordsParam(
+//         'Термобарические снаряды', 
+//         'Снаряды, при взрыве образующие облако аэрозоля горючего вещества.', 
+//         '<img src="../pictures/termo.jpg" alt="img">');
+
+// const massiv = [
+//     wordOne,
+//     wordTwo,
+//     wordThree
+// ];
+
+
+let massiv = [
+    {
+        name: 'Термобарические снаряды',
+        desc: 'Снаряды, при взрыве образующие облако аэрозоля горючего вещества.',
+        pic: '<img src="../pictures/termo.jpg" alt="img">'
+    },
+    {
+        name: 'СПЗ (Система постановки завес)',
+        desc: 'Система постановки завес. Аэрозольные гранаты для блокирования ПТУР с инфракрасными ГСН.',
+        pic: '<img src="../pictures/pic2.jpg" alt="img">'
+    },
+    {
+        name: 'Планка Пикатинни',
+        desc: 'Система рельсового крепления для стрелкового оружия.',
+        pic: '<img src="../pictures/pic1.jpg" alt="img">'
+    }
 ];
 
-console.log(arrBig[0].pic);
 
 
 function logger() {
-    if (arrBig.length == 0) {
+    if (massiv.length == 0) {
         delete_html();
     } else {
-        alert_info.innerHTML = arrBig.length - 1;
-        let i = randomInteger(0, arrBig.length - 1);
-        testImg.src = arrBig[i].pic;
-        console.log(arrBig[i].pic);
-        mainWord.innerHTML = arrBig[i].mainWord;
-        descWord.innerHTML = arrBig[i].descWord;
-        arrBig.splice(i, 1);
-        // console.log(arrBig);
+        alert_info.innerHTML = massiv.length - 1;
+        let i = randomInteger(0, massiv.length - 1);
+        picWord.innerHTML = massiv[i].pic;
+        console.log(massiv[i].pic);
+        mainWord.innerHTML = massiv[i].name;
+        descWord.innerHTML = massiv[i].desc;
+        massiv.splice(i, 1);
+        // console.log(massiv);
     }
 }
 
