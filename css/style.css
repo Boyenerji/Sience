@@ -11,15 +11,14 @@ body {
     /* background-color: #191919; */
     background-color: #DCDCDC;
     padding: 10px;
-    display: flex;
+    /* display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100vh; */
 }
 
 #hello_h1 {
     color: black;
-    position: absolute;
-    top: 15%;
+    text-align: center;
 }
 
 
@@ -72,7 +71,7 @@ select:hover {
 
 
 .main {
-    width: 50%;
+    width: 40%;
     margin: 0 auto;
     padding: 10px;
     display: flex;

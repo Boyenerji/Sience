@@ -5,7 +5,7 @@ let timerId,
     idAnim,
     clown;
 
-const btn = document.querySelector('#btn_start'),
+let btn = document.querySelector('#btn_start'),
       btn_next = document.querySelector('#btn_next'),
       showWords = document.querySelector('.showWords'),
       select = document.querySelector('select'),
@@ -15,16 +15,15 @@ const btn = document.querySelector('#btn_start'),
       hello_h1 = document.querySelector('#hello_h1'),
       picWord = document.querySelector('.picWord'),
       mainWord = document.querySelector('.mainWord'),
-      descWord = document.querySelector('.descWord'),
-      testImg = document.querySelector('#testImg');
+      descWord = document.querySelector('.descWord');
 
-class wordsParam {
-    constructor(mainWord, descWord, pic) {
-        this.mainWord = mainWord;
-        this.descWord = descWord;
-        this.pic = pic;
-    }
-}
+// class wordsParam {
+//     constructor(mainWord, descWord, pic) {
+//         this.mainWord = mainWord;
+//         this.descWord = descWord;
+//         this.pic = pic;
+//     }
+// }
 
 
 
@@ -79,14 +78,21 @@ function logger() {
     if (massiv.length == 0) {
         delete_html();
     } else {
-        alert_info.innerHTML = massiv.length - 1;
+        main.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
+        if ((massiv.length - 1) != 0) {
+            alert_info.innerHTML = massiv.length - 1;
+        } else {
+            alert_info.innerHTML = 'Последняя';
+        }
         let i = randomInteger(0, massiv.length - 1);
         picWord.innerHTML = massiv[i].pic;
         console.log(massiv[i].pic);
         mainWord.innerHTML = massiv[i].name;
         descWord.innerHTML = massiv[i].desc;
         massiv.splice(i, 1);
-        // console.log(massiv);
+        setTimeout(() => {
+            main.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
+        }, 800)
     }
 }
 
@@ -118,6 +124,7 @@ btn.addEventListener('click', () => {
     alert_info.style.display = 'block';
     btn.remove();
     select.remove();
+    hello_h1.remove();
     btn_next.style.display = 'block';
     alert_info.style.display = 'block';
     showWords.style.display = 'flex';
