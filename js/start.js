@@ -5,7 +5,8 @@ let timerId,
     idAnim,
     clown;
 
-let btn = document.querySelector('#btn_start'),
+let   btn = document.querySelector('#btn_start'),
+      body = document.querySelector('body'),
       btn_next = document.querySelector('#btn_next'),
       showWords = document.querySelector('.showWords'),
       select = document.querySelector('select'),
@@ -54,6 +55,11 @@ let btn = document.querySelector('#btn_start'),
 // ];
 
 
+// trueAnswers: {
+//     trueOne: '<input type="submit" value="Первая кнопка">'
+// }
+
+
 let massiv = [
     {
         name: 'Термобарические снаряды',
@@ -69,14 +75,42 @@ let massiv = [
         name: 'Планка Пикатинни',
         desc: 'Система рельсового крепления для стрелкового оружия.',
         pic: '<img src="../pictures/pic1.jpg" alt="img">'
+    },
+    {
+        name: 'Термодымовая аппаратура (ТДА).',
+        desc:'Cистема постановки дымовых завес на танках, основанная на принципе испарения топлива с горячих деталей двигателя.',
+        pic: '<img src="../pictures/pic4.jpg" alt="img">'
     }
 ];
 
 
+const krugozor_words = [
+    {
+        name: 'Отмена крепостного права',
+        desc: 'Александром 2, 3 марта 1861 года.' 
+    },
+    {
+        name: 'Полет Юрия Гагарина.',
+        desc: '12 апреля 1961 года.' 
+    },
+    {
+        name: '5 океанов на земле',
+        desc: 'Тихий, атлантический, северный-ледовитый, индийский, южный.' 
+    },
+    {
+        name: '6 материков',
+        desc: 'Северная Америка, Южная Америка, Евразия, Африка, Австралия, Антарктида.' 
+    },
+    {
+        name: 'Самое большое озеро',
+        desc: 'Каспийское море.' 
+    }
+];
+
 
 function logger() {
     if (massiv.length == 0) {
-        delete_html();
+        location.reload();
     } else {
         main.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
         if ((massiv.length - 1) != 0) {
@@ -85,6 +119,7 @@ function logger() {
             alert_info.innerHTML = 'Последняя';
         }
         let i = randomInteger(0, massiv.length - 1);
+        // picWord.innerHTML = massiv[i].trueAnswers.trueOne;
         picWord.innerHTML = massiv[i].pic;
         console.log(massiv[i].pic);
         mainWord.innerHTML = massiv[i].name;
@@ -92,17 +127,29 @@ function logger() {
         massiv.splice(i, 1);
         setTimeout(() => {
             main.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
-        }, 800)
+        }, 800);
     }
 }
 
-const krugozor_words = [
-    'Крепостное право было отменено <span id="blue">3 марта 1861</span> года <span id="blue">Александром 2</span>',
-    'Полет Юрия Гагарина <span id="blue">12 апреля 1961 года</span>.',
-    '5 океанов на земле: <span id="blue">тихий, атлантический, северный-ледовитый, индийский, южный</span>',
-    '6 материков: <span id="blue">Северная Америка, Южная Америка, Евразия, Африка, Австралия, Антарктида</span>',
-    'Самое большое озеро - <span id="blue">каспийское море</span>'
-];
+function KrugozorFunc() {
+    if (krugozor_words.length == 0) {
+        location.reload();
+    } else {
+        main.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
+        if ((krugozor_words.length - 1) != 0) {
+            alert_info.innerHTML = krugozor_words.length - 1;
+        } else {
+            alert_info.innerHTML = 'Последняя';
+        }
+        let i = randomInteger(0, krugozor_words.length - 1);
+        mainWord.innerHTML = krugozor_words[i].name;
+        descWord.innerHTML = krugozor_words[i].desc;
+        krugozor_words.splice(i, 1);
+        setTimeout(() => {
+            main.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
+        }, 800);
+    }
+}
 
 
 btn.addEventListener('click', () => {
@@ -146,31 +193,31 @@ btn_next.addEventListener('click', () => {
     }
 });
 
-main_btn.addEventListener('click', () => {
-    location.reload();
-});
-
-function KrugozorFunc() {
-    if (krugozor_words.length == 0) {
-        delete_html();
-    } else {
-        alert_info.innerHTML = krugozor_words.length - 1;
-        let i = randomInteger(0, krugozor_words.length - 1);
-        showWords.innerHTML = '<span id="white">' + krugozor_words[i] + '</span>';
-        krugozor_words.splice(i, 1);
-    }
-}
-
-
 function randomInteger(min, max) {
     let rand = min - 0.5 + Math.random() * (max - min + 1);
     return Math.round(rand);
 }
 
 
-function delete_html() {
-    btn_next.style.display = 'none';
-    alert_info.style.display = 'none';
-    showWords.innerHTML = 'Конец';
-    main_btn.style.display = 'flex';
+// function delete_html() {
+//     btn_next.style.display = 'none';
+//     alert_info.style.display = 'none';
+//     showWords.innerHTML = 'Конец';
+//     main_btn.style.display = 'flex';
+// }
+
+DarkTheme();
+function DarkTheme() {
+    let date = new Date();
+    if (date.getHours() > 19 || date.getHours() < 6) {
+        body.style.backgroundColor = '#343a40';
+        hello_h1.style.color = '#fff';
+        main.style.backgroundColor = '#495057';
+        mainWord.style.color = '#fff';
+        descWord.style.color = '#adb5bd';
+        alert_info.style.backgroundColor = '#343a40';
+        alert_info.style.color = '#fff';
+        select.style.backgroundColor = '#6c757d';
+        select.style.color = '#fff';
+    }
 }
