@@ -123,23 +123,11 @@ select:hover {
 }
 
 
-#blue {
-    color: #1E90FF;
-}
-
-#color {
-    color: #1E90FF;
-}
-
-#white {
-    color: black;
-}
-
-#color, #white {
+/* #color, #white {
     font-size: 1.5em;
     text-align: center;
     margin-top: 10px;
-}
+} */
 
 
 @media screen and (max-width: 600px) {

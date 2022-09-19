@@ -209,7 +209,7 @@ function randomInteger(min, max) {
 DarkTheme();
 function DarkTheme() {
     let date = new Date();
-    if (date.getHours() > 22 || date.getHours() < 6) {
+    if (date.getHours() > 19 || date.getHours() < 6) {
         body.style.backgroundColor = '#343a40';
         hello_h1.style.color = '#fff';
         main.style.backgroundColor = '#495057';
