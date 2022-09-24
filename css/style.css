@@ -19,6 +19,7 @@ body {
 #hello_h1 {
     color: black;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 
@@ -92,8 +93,8 @@ select:hover {
 #btn_start {
     /* margin: 0 auto; */
     margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1.3em;
+    /* padding: 10px 20px; */
+    font-size: 1.1em;
     cursor: pointer;
     background: #1E90FF;
     border: none;
@@ -134,6 +135,7 @@ select:hover {
     .main {
         width: 100%;
         margin-bottom: 20px;
+        margin-top: 20px;
     }
 
     .showWords {
