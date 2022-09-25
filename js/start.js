@@ -16,7 +16,8 @@ let   btn = document.querySelector('#btn_start'),
       hello_h1 = document.querySelector('#hello_h1'),
       picWord = document.querySelector('.picWord'),
       mainWord = document.querySelector('.mainWord'),
-      descWord = document.querySelector('.descWord');
+      descWord = document.querySelector('.descWord'),
+      dateWord = document.querySelector('.dateWord');
 
 // class wordsParam {
 //     constructor(mainWord, descWord, pic) {
@@ -48,7 +49,7 @@ let   btn = document.querySelector('#btn_start'),
 //         'Снаряды, при взрыве образующие облако аэрозоля горючего вещества.', 
 //         '<img src="../pictures/termo.jpg" alt="img">');
 
-// const massiv = [
+// const arrWords = [
 //     wordOne,
 //     wordTwo,
 //     wordThree
@@ -60,122 +61,133 @@ let   btn = document.querySelector('#btn_start'),
 // }
 
 
-let massiv = [
+let arrWords = [
     {
+        pic: '<img src="../pictures/termo.jpg" alt="img">',
         name: 'Термобарические снаряды',
         desc: 'Снаряды, при взрыве образующие облако аэрозоля горючего вещества.',
-        pic: '<img src="../pictures/termo.jpg" alt="img">'
+        dateWord: ''
     },
     {
+        pic:  '<img src="../pictures/pic2.jpg" alt="img">',
         name: 'СПЗ (Система постановки завес)',
         desc: 'Система постановки завес. Аэрозольные гранаты для блокирования ПТУР с инфракрасными ГСН.',
-        pic:  '<img src="../pictures/pic2.jpg" alt="img">'
+        dateWord: ''
     },
     {
+        pic:  '<img src="../pictures/pic1.jpg" alt="img">',
         name: 'Планка Пикатинни',
         desc: 'Система рельсового крепления для стрелкового оружия.',
-        pic:  '<img src="../pictures/pic1.jpg" alt="img">'
+        dateWord: ''
     },
     {
+        pic:  '<img src="../pictures/pic4.jpg" alt="img">',
         name: 'Термодымовая аппаратура (ТДА).',
         desc: 'Cистема постановки дымовых завес на танках, основанная на принципе испарения топлива с горячих деталей двигателя.',
-        pic:  '<img src="../pictures/pic4.jpg" alt="img">'
+        dateWord: ''
     },
     {
+        pic:  '<img src="../pictures/pic5.jpg" alt="img">',
         name: 'Куликовская битва.',
-        desc: 'Крупное сражение между русским войском и войском Золотой Орды 8 сентября 1380 года.',
-        pic:  '<img src="../pictures/pic5.jpg" alt="img">'
+        desc: 'Крупное сражение между русским войском и войском Золотой Орды.',
+        dateWord: '8 сентября 1380 года.'
+    },
+    {
+        pic:  '<img src="../pictures/pravo.jpg" alt="img">',
+        name: 'Отмена крепостного права.',
+        desc: 'Александром II.',
+        dateWord: '3 марта 1861 года.'
+    },
+    {
+        pic:  '<img src="../pictures/5-okeanov.jpg" alt="img">',
+        name: '5 океанов на земле.',
+        desc: 'Тихий, атлантический, северный-ледовитый, индийский, южный.',
+        dateWord: ''
+    },
+    {
+        pic:  '<img src="../pictures/materics.jpg" alt="img">',
+        name: '6 материков на земле.',
+        desc: 'Северная Америка, Южная Америка, Евразия, Африка, Австралия, Антарктида.',
+        dateWord: ''
     }
 ];
-
-
-const krugozor_words = [
-    {
-        name: 'Отмена крепостного права',
-        desc: 'Александром II | 3 марта 1861 года.' 
-    },
-    {
-        name: 'Полет Юрия Гагарина.',
-        desc: '12 апреля 1961 года.' 
-    },
-    {
-        name: '5 океанов на земле',
-        desc: 'Тихий, атлантический, северный-ледовитый, индийский, южный.' 
-    },
-    {
-        name: '6 материков',
-        desc: 'Северная Америка, Южная Америка, Евразия, Африка, Австралия, Антарктида.' 
-    },
-    {
-        name: 'Самое большое озеро',
-        desc: 'Каспийское море.' 
-    },
-    {
-        name: 'Куликовская битва.',
-        desc: 'Крупное сражение между русским войском и войском Золотой Орды 8 сентября 1380 года.' 
-    }
-];
-
 
 function logger() {
-    if (massiv.length == 0) {
+    if (arrWords.length == 0) {
         location.reload();
     } else {
+        if (dateWord.style.display == 'block') {
+            dateWord.style.display = 'none';
+        }
         main.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
-        if ((massiv.length - 1) != 0) {
-            alert_info.innerHTML = massiv.length - 1;
+        if ((arrWords.length - 1) != 0) {
+            alert_info.innerHTML = arrWords.length - 1;
         } else {
             alert_info.innerHTML = 'Последняя';
         }
-        let i = randomInteger(0, massiv.length - 1);
-        // picWord.innerHTML = massiv[i].trueAnswers.trueOne;
-        picWord.innerHTML = massiv[i].pic;
-        console.log(massiv[i].pic);
-        mainWord.innerHTML = massiv[i].name;
-        descWord.innerHTML = massiv[i].desc;
-        massiv.splice(i, 1);
+        let i = randomInteger(0, arrWords.length - 1);
+        picWord.innerHTML = arrWords[i].pic;
+        mainWord.innerHTML = arrWords[i].name;
+        descWord.innerHTML = arrWords[i].desc;
+        if (arrWords[i].dateWord.length > 0) {
+            dateWord.style.display = 'block';
+            dateWord.innerHTML = `${arrWords[i].dateWord}`;
+        }
+        arrWords.splice(i, 1);
         setTimeout(() => {
             main.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
         }, 800);
     }
 }
 
-function KrugozorFunc() {
-    if (krugozor_words.length == 0) {
-        location.reload();
-    } else {
-        main.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
-        if ((krugozor_words.length - 1) != 0) {
-            alert_info.innerHTML = krugozor_words.length - 1;
-        } else {
-            alert_info.innerHTML = 'Последняя';
-        }
-        let i = randomInteger(0, krugozor_words.length - 1);
-        mainWord.innerHTML = krugozor_words[i].name;
-        descWord.innerHTML = krugozor_words[i].desc;
-        krugozor_words.splice(i, 1);
-        setTimeout(() => {
-            main.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
-        }, 800);
-    }
-}
+
+// const krugozor_words = [
+//     {
+//         name: '6 материков',
+//         desc: 'Северная Америка, Южная Америка, Евразия, Африка, Австралия, Антарктида.',
+//         dateWord: ''
+//     },
+//     {
+//         name: 'Куликовская битва.',
+//         desc: 'Крупное сражение между русским войском и войском Золотой Орды.',
+//         dateWord: '8 сентября 1380 года'
+//     }
+// ];
+
+
+// function KrugozorFunc() {
+//     if (krugozor_words.length == 0) {
+//         location.reload();
+//     } else {
+//         dateWord.innerHTML = '';
+//         if (dateWord.style.display == 'block') {
+//             dateWord.style.display = 'none';
+//         }
+//         main.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
+//         if ((krugozor_words.length - 1) != 0) {
+//             alert_info.innerHTML = krugozor_words.length - 1;
+//         } else {
+//             alert_info.innerHTML = 'Последняя';
+//         }
+//         let i = randomInteger(0, krugozor_words.length - 1);
+//         mainWord.innerHTML = krugozor_words[i].name;
+//         descWord.innerHTML = krugozor_words[i].desc;
+
+//         if (krugozor_words[i].dateWord.length > 0) {
+//             dateWord.style.display = 'block';
+//             dateWord.innerHTML = `${krugozor_words[i].dateWord}`;
+//         }
+//         krugozor_words.splice(i, 1);
+//         setTimeout(() => {
+//             main.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
+//         }, 800);
+//     }
+// }
+
 
 
 btn.addEventListener('click', () => {
-    console.log(select.value);
-    switch (select.value) {
-        case 'Кругозор':
-            console.log('Ага кругозор');
-            KrugozorFunc();
-            break; 
-               
-        case 'Общее развитие':
-            logger();
-            break;     
-           
-        default:
-            break;
-    }
+    logger();
     clown = select.value;
     alert_info.style.display = 'block';
     btn.remove();
@@ -188,32 +200,13 @@ btn.addEventListener('click', () => {
 
 
 btn_next.addEventListener('click', () => {
-    switch (clown) {
-        case 'Кругозор':
-            KrugozorFunc();
-            break;
-
-        case 'Общее развитие':
-            logger();
-            break; 
-
-        default:
-            break;
-    }
+    logger();
 });
 
 function randomInteger(min, max) {
     let rand = min - 0.5 + Math.random() * (max - min + 1);
     return Math.round(rand);
 }
-
-
-// function delete_html() {
-//     btn_next.style.display = 'none';
-//     alert_info.style.display = 'none';
-//     showWords.innerHTML = 'Конец';
-//     main_btn.style.display = 'flex';
-// }
 
 DarkTheme();
 function DarkTheme() {
