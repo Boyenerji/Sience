@@ -109,6 +109,12 @@ let arrWords = [
         name: '6 материков на земле.',
         desc: 'Северная Америка, Южная Америка, Евразия, Африка, Австралия, Антарктида.',
         dateWord: ''
+    },
+    {
+        pic:  '<img src="../pictures/IAI_Harop_PAS_2013_01.jpg" alt="img">',
+        name: 'Барражирующий боеприпас.',
+        desc: 'Дрон-камикадзе.',
+        dateWord: ''
     }
 ];
 
@@ -211,7 +217,7 @@ function randomInteger(min, max) {
 DarkTheme();
 function DarkTheme() {
     let date = new Date();
-    if (date.getHours() > 19 || date.getHours() < 6) {
+    if (date.getHours() > 18 || date.getHours() < 6) {
         body.style.backgroundColor = '#343a40';
         hello_h1.style.color = '#fff';
         main.style.backgroundColor = '#495057';
