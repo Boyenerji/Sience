@@ -115,6 +115,12 @@ let arrWords = [
         name: 'Барражирующий боеприпас.',
         desc: 'Дрон-камикадзе.',
         dateWord: ''
+    },
+    {
+        pic:  '<img src="../pictures/gas.jpg" alt="img">',
+        name: 'Ирританты.',
+        desc: 'Группа веществ, вызывающих при попадании сильное местное раздражение слизистых оболочек, кожных покровов. Подразделяются на 2 основные группы: лакриматоры — вещества, вызывающие обильное слезотечение; стерниты — вещества, вызывающие неконтролируемое чихание и кашель.',
+        dateWord: ''
     }
 ];
 
@@ -122,7 +128,7 @@ function logger() {
     if (arrWords.length == 0) {
         location.reload();
     } else {
-        if (dateWord.style.display == 'block') {
+        if (dateWord.style.display == 'flex') {
             dateWord.style.display = 'none';
         }
         main.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
@@ -136,8 +142,14 @@ function logger() {
         mainWord.innerHTML = arrWords[i].name;
         descWord.innerHTML = arrWords[i].desc;
         if (arrWords[i].dateWord.length > 0) {
-            dateWord.style.display = 'block';
-            dateWord.innerHTML = `${arrWords[i].dateWord}`;
+            dateWord.innerHTML = '';
+            dateWord.style.display = 'flex';
+            dateWord.innerHTML += 
+            `<svg width="22" height="22" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2a10 10 0 1 0 0 20 10 10 0 1 0 0-20z"></path>
+                <path d="M12 6v6l4 2"></path>
+            </svg>`;
+            dateWord.innerHTML += `<p>${arrWords[i].dateWord}</p>`;
         }
         arrWords.splice(i, 1);
         setTimeout(() => {
@@ -145,20 +157,6 @@ function logger() {
         }, 800);
     }
 }
-
-
-// const krugozor_words = [
-//     {
-//         name: '6 материков',
-//         desc: 'Северная Америка, Южная Америка, Евразия, Африка, Австралия, Антарктида.',
-//         dateWord: ''
-//     },
-//     {
-//         name: 'Куликовская битва.',
-//         desc: 'Крупное сражение между русским войском и войском Золотой Орды.',
-//         dateWord: '8 сентября 1380 года'
-//     }
-// ];
 
 
 // function KrugozorFunc() {

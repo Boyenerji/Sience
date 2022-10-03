@@ -123,15 +123,21 @@ select:hover {
     border-radius: 8px;
 }
 
+p {
+    margin: 0;
+}
 
 .dateWord {
     margin-top: 15px;
     font-weight: normal;
     padding: 5px;
     border-radius: 7px;
-    background: linear-gradient(135deg, #12BCB0 20%, #FABE0E 70%);
-    color: #FFFFFF;
+    /* color: #FFFFFF; */
     display: none;
+}
+
+.dateWord svg {
+    margin-right: 5px;
 }
 
 
