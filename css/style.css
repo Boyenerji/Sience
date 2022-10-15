@@ -68,7 +68,7 @@ select:hover {
 
 .descWord {
     font-size: 2.3vh;
-    color: #696969;
+    color: rgb(71 85 105);
     text-align: center;
     word-break: break-word;
 }
@@ -118,7 +118,7 @@ select:hover {
 } */
 
 .showWords img {
-    width: 90%;
+    /* width: 90%; */
     height: auto;
     border-radius: 8px;
 }
@@ -151,7 +151,7 @@ p {
 } */
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
     .main {
         width: 100%;
         margin-bottom: 20px;
