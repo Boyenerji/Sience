@@ -17,6 +17,7 @@ let   btn = document.querySelector('#btn_start'),
       picWord = document.querySelector('.picWord'),
       mainWord = document.querySelector('.mainWord'),
       descWord = document.querySelector('.descWord'),
+      idImg = document.querySelector('#idImg'),
       dateWord = document.querySelector('.dateWord');
 
 // class wordsParam {
@@ -28,7 +29,7 @@ let   btn = document.querySelector('#btn_start'),
 // }
 
 
-
+console.dir(idImg);
 
 
 // const wordOne = new wordsParam(
@@ -91,79 +92,79 @@ let   btn = document.querySelector('#btn_start'),
 
 let arrWords = [
     {
-        pic: '<img src="../pictures/termo.jpg" alt="img">',
+        pic: '../pictures/termo.jpg',
         name: 'Термобарические снаряды',
         desc: 'Снаряды, при взрыве образующие облако аэрозоля горючего вещества.',
         dateWord: ''
     },
     {
-        pic:  '<img src="../pictures/pic2.jpg" alt="img">',
+        pic:  '../pictures/pic2.jpg',
         name: 'СПЗ (Система постановки завес)',
         desc: 'Система постановки завес. Аэрозольные гранаты для блокирования ПТУР с инфракрасными ГСН.',
         dateWord: ''
     },
     {
-        pic:  '<img src="../pictures/pic1.jpg" alt="img">',
+        pic:  '../pictures/pic1.jpg',
         name: 'Планка Пикатинни',
         desc: 'Система рельсового крепления для стрелкового оружия.',
         dateWord: ''
     },
     {
-        pic:  '<img src="../pictures/pic4.jpg" alt="img">',
+        pic:  '../pictures/pic4.jpg',
         name: 'Термодымовая аппаратура (ТДА).',
         desc: 'Cистема постановки дымовых завес на танках, основанная на принципе испарения топлива с горячих деталей двигателя.',
         dateWord: ''
     },
     {
-        pic:  '<img src="../pictures/pic5.jpg" alt="img">',
+        pic:  '../pictures/pic5.jpg',
         name: 'Куликовская битва.',
         desc: 'Крупное сражение между русским войском и войском Золотой Орды.',
         dateWord: '8 сентября 1380 года.'
     },
     {
-        pic:  '<img src="../pictures/pravo.jpg" alt="img">',
+        pic:  '../pictures/pravo.jpg',
         name: 'Отмена крепостного права.',
         desc: 'Александром II.',
         dateWord: '3 марта 1861 года.'
     },
     {
-        pic:  '<img src="../pictures/5-okeanov.jpg" alt="img">',
+        pic:  '../pictures/5-okeanov.jpg',
         name: '5 океанов на земле.',
         desc: 'Тихий, атлантический, северный-ледовитый, индийский, южный.',
         dateWord: ''
     },
     {
-        pic:  '<img src="../pictures/materics.jpg" alt="img">',
+        pic:  '../pictures/materics.jpg',
         name: '6 материков на земле.',
         desc: 'Северная Америка, Южная Америка, Евразия, Африка, Австралия, Антарктида.',
         dateWord: ''
     },
     {
-        pic:  '<img src="../pictures/IAI_Harop_PAS_2013_01.jpg" alt="img">',
+        pic:  '../pictures/IAI_Harop_PAS_2013_01.jpg',
         name: 'Барражирующий боеприпас.',
         desc: 'Дрон-камикадзе.',
         dateWord: ''
     },
     {
-        pic:  '<img src="../pictures/gas.jpg" alt="img">',
+        pic:  '../pictures/gas.jpg',
         name: 'Ирританты.',
         desc: 'Группа веществ, вызывающих при попадании сильное местное раздражение слизистых оболочек, кожных покровов. Подразделяются на 2 основные группы: <br>Лакриматоры — вещества, вызывающие обильное слезотечение; <br>Стерниты — вещества, вызывающие неконтролируемое чихание и кашель.',
         dateWord: ''
     },
     {
-        pic:  '<img src="../pictures/vert.jpg" alt="img">',
+        pic:  '../pictures/vert.jpg',
         name: 'БКО(бортовой комплекс обороны).',
         desc: 'Предназначен для предупреждения экипажа о радиолокационном и лазерном облучении летательного аппарата, фактах пуска по нему управляемых ракет, а также для противодействия нацеленным на ЛА ракетам с радиолокационными и инфракрасными головками самонаведения.',
         dateWord: ''
     },
     {
-        pic:  '<img src="../pictures/Alabino220415part1-42.jpg" alt="img">',
+        pic:  '../pictures/Alabino220415part1-42.jpg',
         name: 'ОТРК - оперативно-тактический ракетный комплекс.',
         desc: 'Основное назначение ракетных комплексов «Искандер» — уничтожение систем ПВО и ПРО противника, а также важнейших объектов, прикрываемых ими, на дальностях до 500 км.<br> «Искандер-М» использует высотную (высота полёта — 50 км) сверхманёвренную (перегрузки — 20—30 g) квазибаллистическую ракету со стелс-технологиями, сбрасываемым модулем РЭБ и ложными мишенями с целью обхода систем ПРО и поражения защищаемых ими объектов на дальности до 500 км. <br><br> Комплекс в варианте комплектации «Искандер-К» использует крылатую ракету Р-500 со сверхнизкой траекторией полёта на высоте 6-7 м с огибанием рельефа местности.',
         dateWord: ''
     },
     {
-        pic:  '<img src="../pictures/BloomfieldAeolianHarp.jpg" alt="img">',
+        pic:  '../pictures/BloomfieldAeolianHarp.jpg',
         name: 'Эолова арфа, также воздушная а́рфа.',
         desc: 'Инструмент типа цитры, звучащий благодаря колеблющему струны ветру. Названа в честь Эола, мифического повелителя ветров.',
         dateWord: ''
@@ -172,8 +173,7 @@ let arrWords = [
 ];
 
 
-
-
+// pic:  '<img src="../pictures/BloomfieldAeolianHarp.jpg" alt="img">',
 
 
 function logger() {
@@ -190,23 +190,45 @@ function logger() {
             alert_info.innerHTML = 'Последняя';
         }
         let i = randomInteger(0, arrWords.length - 1);
-        picWord.innerHTML = arrWords[i].pic;
-        mainWord.innerHTML = arrWords[i].name;
-        descWord.innerHTML = arrWords[i].desc;
-        if (arrWords[i].dateWord.length > 0) {
-            dateWord.innerHTML = '';
-            dateWord.style.display = 'flex';
-            dateWord.innerHTML += 
-            `<svg width="22" height="22" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2a10 10 0 1 0 0 20 10 10 0 1 0 0-20z"></path>
-                <path d="M12 6v6l4 2"></path>
-            </svg>`;
-            dateWord.innerHTML += `<p>${arrWords[i].dateWord}</p>`;
-        }
-        arrWords.splice(i, 1);
-        setTimeout(() => {
-            main.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
-        }, 800);
+        console.log(i);
+        // console.dir(idImg.complete);
+
+        // let idImg = new Image();
+        // idImg.onload = function () {
+        //     console.log("image is loaded");
+        // }
+        // idImg.src = `${arrWords[i].pic}`;
+        
+        idImg.src = '../pictures/no_photo.png';
+        idImg.src = `${arrWords[i].pic}`;
+        mainWord.innerHTML = 'wait...';
+        descWord.innerHTML = 'wait...';
+        idImg.onload = () => {
+            console.log(i);
+            console.log(arrWords[i].name);
+            console.log(arrWords[i].desc);
+            mainWord.innerHTML = arrWords[i].name;
+            descWord.innerHTML = arrWords[i].desc;
+
+            if (arrWords[i].dateWord.length > 0) {
+                dateWord.innerHTML = '';
+                dateWord.style.display = 'flex';
+                dateWord.innerHTML += 
+                `<svg width="22" height="22" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2a10 10 0 1 0 0 20 10 10 0 1 0 0-20z"></path>
+                    <path d="M12 6v6l4 2"></path>
+                </svg>`;
+                dateWord.innerHTML += `<p>${arrWords[i].dateWord}</p>`;
+            }
+            arrWords.splice(i, 1);
+            setTimeout(() => {
+                main.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
+            }, 800);
+        };
+        // picWord.innerHTML = arrWords[i].pic;
+
+    
+        
     }
 }
 
