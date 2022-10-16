@@ -31,7 +31,9 @@ let   btn = document.querySelector('#btn_start'),
 
 console.dir(idImg);
 
-
+// select.addEventListener('click', () => {
+//     console.dir(select.value);
+// });
 // const wordOne = new wordsParam(
 //         'СПЗ (Система постановки завес)', 
 //         'Система постановки завес. Аэрозольные гранаты для блокирования ПТУР с инфракрасными ГСН.', 
@@ -89,20 +91,18 @@ console.dir(idImg);
 
 // console.dir(arrWordss[0][0]);
 
+let WordsArr = [
+    {
+        name: 'Гнусный.',
+        desc: 'Внушающий отвращение, омерзительный.',
+    },
+    {
+        name: 'Разверзаться.',
+        desc: 'Широко раскрываться, раздвигаться.',
+    }
+];
 
 
-// {
-//     pic:  '',
-//     name: 'Гнусный.',
-//     desc: 'Внушающий отвращение, омерзительный.',
-//     dateWord: ''
-// },
-// {
-//     pic:  '',
-//     name: 'Разверзаться.',
-//     desc: 'Широко раскрываться, раздвигаться.',
-//     dateWord: ''
-// }
 
 let arrWords = [
     {
@@ -188,7 +188,29 @@ let arrWords = [
 
 
 // pic:  '<img src="../pictures/BloomfieldAeolianHarp.jpg" alt="img">',
+function words() {
+    if (WordsArr.length == 0) {
+        location.reload();
+    } else {
+        main.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
+        btn_next.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
+        if ((WordsArr.length - 1) != 0) {
+            alert_info.innerHTML = WordsArr.length - 1;
+        } else {
+            alert_info.innerHTML = 'Последняя';
+        }
+        let i = randomInteger(0, WordsArr.length - 1);
+        console.log(i);
+        mainWord.innerHTML = WordsArr[i].name;
+        descWord.innerHTML = WordsArr[i].desc;
+        WordsArr.splice(i, 1);
+        setTimeout(() => {
+             main.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
+             btn_next.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
+        }, 800);
 
+    }
+}
 
 function logger() {
     if (arrWords.length == 0) {
@@ -279,7 +301,23 @@ function logger() {
 
 
 btn.addEventListener('click', () => {
-    logger();
+    if (select.value == 'Слова') {
+        btn_next.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
+        // mainWord.classList.add('decoration-sky-500');
+        // mainWord.classList.add('text-green-500');
+        mainWord.classList.add('underline');
+        mainWord.classList.remove('fs-3');
+        mainWord.classList.add('text-2xl');
+        descWord.classList.remove('fs-5');
+        descWord.classList.add('font-thin');
+        descWord.classList.add('text-lg');
+        descWord.classList.add('text-white');
+        // descWord.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
+        picWord.remove();
+        words();
+    } else {
+        logger();
+    }
     clown = select.value;
     alert_info.style.display = 'block';
     btn.remove();
@@ -292,7 +330,11 @@ btn.addEventListener('click', () => {
 
 
 btn_next.addEventListener('click', () => {
-    logger();
+    if (select.value == 'Слова') {
+        words();
+    } else {
+        logger();
+    }
 });
 
 function randomInteger(min, max) {
@@ -307,8 +349,7 @@ function DarkTheme() {
         body.style.backgroundColor = '#343a40';
         hello_h1.style.color = '#fff';
         main.style.backgroundColor = '#495057';
-        mainWord.style.color = '#fff';
-        descWord.style.color = 'rgb(226 232 240)';
+        descWord.style.color = 'rgb(209 213 219)';
         alert_info.style.backgroundColor = '#343a40';
         alert_info.style.color = '#fff';
         select.style.backgroundColor = '#6c757d';
