@@ -236,19 +236,15 @@ function logger() {
         }
         let i = randomInteger(0, arrWords.length - 1);
         console.log(i);
-        // console.dir(idImg.complete);
 
-        // let idImg = new Image();
-        // idImg.onload = function () {
-        //     console.log("image is loaded");
-        // }
-        // idImg.src = `${arrWords[i].pic}`;
         
-        idImg.src = '../pictures/no_photo.png';
-        idImg.src = `${arrWords[i].pic}`;
-        mainWord.innerHTML = 'wait...';
+        // idImg.src = '../pictures/no_photo.png';
+        idImg.style.display = 'none';
+        mainWord.innerHTML = 'wait...'
         descWord.innerHTML = 'wait...';
+        idImg.src = `${arrWords[i].pic}`;
         idImg.onload = () => {
+            idImg.style.display = 'block';
             console.log(i);
             console.log(arrWords[i].name);
             console.log(arrWords[i].desc);
@@ -320,7 +316,7 @@ btn.addEventListener('click', () => {
         descWord.classList.remove('fs-5');
         descWord.classList.add('font-thin');
         descWord.classList.add('text-lg');
-        descWord.classList.add('text-white');
+        // descWord.classList.add('text-white');
         // descWord.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
         picWord.remove();
         words();
@@ -354,7 +350,7 @@ function randomInteger(min, max) {
 DarkTheme();
 function DarkTheme() {
     let date = new Date();
-    if (date.getHours() > 18 || date.getHours() < 6) {
+    if (date.getHours() > 17 || date.getHours() < 6) {
         body.style.backgroundColor = '#343a40';
         hello_h1.style.color = '#fff';
         main.style.backgroundColor = '#495057';
