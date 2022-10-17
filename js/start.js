@@ -31,65 +31,6 @@ let   btn = document.querySelector('#btn_start'),
 
 console.dir(idImg);
 
-// select.addEventListener('click', () => {
-//     console.dir(select.value);
-// });
-// const wordOne = new wordsParam(
-//         'СПЗ (Система постановки завес)', 
-//         'Система постановки завес. Аэрозольные гранаты для блокирования ПТУР с инфракрасными ГСН.', 
-//         '<img src="../pictures/pic2.jpg" alt="img">'),
-//         // '<img src="../pictures/pic2.jpg" alt="img">'),
-
-//         // '<img src="../pictures/pic2.jpg" alt="img">'),
-
-//       wordTwo = new wordsParam(
-//         'Планка Пикатинни', 
-//         'Система рельсового крепления для стрелкового оружия', 
-//         '<img src="../pictures/pic1.jpg" alt="img">'),
-
-//       wordThree = new wordsParam(
-//         'Термобарические снаряды', 
-//         'Снаряды, при взрыве образующие облако аэрозоля горючего вещества.', 
-//         '<img src="../pictures/termo.jpg" alt="img">');
-
-// const arrWords = [
-//     wordOne,
-//     wordTwo,
-//     wordThree
-// ];
-
-
-// trueAnswers: {
-//     trueOne: '<input type="submit" value="Первая кнопка">'
-// }
-
-
-// let arrWordss = [
-//     [
-//         {
-//             pic: '<img src="../pictures/termo.jpg" alt="img">',
-//             name: 'Термобарические снаряды',
-//             desc: 'Снаряды, при взрыве образующие облако аэрозоля горючего вещества.',
-//             dateWord: ''  
-//         },
-//         {
-//             pic: '<img src="../pictures/termo.jpg" alt="img">',
-//             name: 'Термобарические снаряды',
-//             desc: 'Снаряды, при взрыве образующие облако аэрозоля горючего вещества.',
-//             dateWord: ''  
-//         }
-//     ],
-//     [
-//         {
-//             pic: '<img src="../pictures/termo.jpg" alt="img">',
-//             name: 'Термобарические снаряды',
-//             desc: 'Снаряды, при взрыве образующие облако аэрозоля горючего вещества.',
-//             dateWord: ''  
-//         }
-//     ]
-// ];
-
-// console.dir(arrWordss[0][0]);
 
 let WordsArr = [
     {
@@ -107,7 +48,24 @@ let WordsArr = [
     {
         name: 'Удручённый.',
         desc: 'Крайне огорчённый, находящийся в подавленном состоянии.',
+    },
+    {
+        name: 'Удручённый.',
+        desc: 'Крайне огорчённый, находящийся в подавленном состоянии.',
+    },
+    {
+        name: 'Фригидный.',
+        desc: 'Холодный, безразличный в половых отношениях.',
+    },
+    {
+        name: 'Флагелляция.',
+        desc: 'Порка подчиняющегося партнера доминирующим при помощи различных предметов.',
+    },
+    {
+        name: 'Согбенный.',
+        desc: 'Сгорбленный, согнутый.',
     }
+
 
 ];
 
@@ -192,6 +150,12 @@ let arrWords = [
         desc: 'Инструмент типа цитры, звучащий благодаря колеблющему струны ветру. Названа в честь Эола, мифического повелителя ветров.',
         dateWord: ''
     },
+    {
+        pic:  '../pictures/Juancito2.png',
+        name: 'Мул.',
+        desc: 'Домашнее животное, помесь осла с кобылой.',
+        dateWord: ''
+    }
 
 ];
 
@@ -240,9 +204,9 @@ function logger() {
         
         // idImg.src = '../pictures/no_photo.png';
         idImg.style.display = 'none';
+        idImg.src = `${arrWords[i].pic}`;
         mainWord.innerHTML = 'wait...'
         descWord.innerHTML = 'wait...';
-        idImg.src = `${arrWords[i].pic}`;
         idImg.onload = () => {
             idImg.style.display = 'block';
             console.log(i);
