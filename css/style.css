@@ -23,9 +23,11 @@ body {
 }
 
 
-select {
-    padding: 10px 20px;
+
+
+.selectID {
     border-radius: 8px;
+    padding: 10px;
 }
 
 
