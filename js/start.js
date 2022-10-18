@@ -29,7 +29,19 @@ let   btn = document.querySelector('#btn_start'),
 // }
 
 
-console.dir(idImg);
+// let right = {
+//     Клоун: {
+//         rigth1: `<button class="btn" value='Клиун'>Клиун</button>`,
+//         right2: `<button class="btn" value='Клиун2'>Клиун2</button>`
+//     }
+// };
+
+// if (right.Клоун == )
+
+// // main.innerHTML = right.test1.rigth1;
+// console.dir(right);
+
+
 
 
 let WordsArr = [
@@ -44,10 +56,6 @@ let WordsArr = [
     {
         name: 'Экспансивный.',
         desc: 'Бурно проявляющий свои чувства.',
-    },
-    {
-        name: 'Удручённый.',
-        desc: 'Крайне огорчённый, находящийся в подавленном состоянии.',
     },
     {
         name: 'Удручённый.',
@@ -111,13 +119,32 @@ let arrWords = [
     {
         pic:  '../pictures/5-okeanov.jpg',
         name: '5 океанов на земле.',
-        desc: 'Тихий, атлантический, северный-ледовитый, индийский, южный.',
+        desc: 
+        `
+            <ol class="list-decimal">
+                <li>Тихий.</li>
+                <li>Атлантический.</li>
+                <li>Северный-ледовитый.</li>
+                <li>Индийский.</li>
+                <li>Южный.</li>
+            </ol>
+        `,
         dateWord: ''
     },
     {
         pic:  '../pictures/materics.jpg',
         name: '6 материков на земле.',
-        desc: 'Северная Америка, Южная Америка, Евразия, Африка, Австралия, Антарктида.',
+        desc: 
+            `
+            <ol class="list-decimal">
+                <li>Северная Америка.</li>
+                <li>Южная Америка</li>
+                <li>Антарктида.</li>
+                <li>Африка.</li>
+                <li>Евразия.</li>
+                <li>Австралия</li>
+            </ol>
+            `,
         dateWord: ''
     },
     {
