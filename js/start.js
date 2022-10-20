@@ -1,5 +1,36 @@
 "use strict";
 
+// import express from 'express';
+// import mongoose from 'mongoose';
+
+
+// mongoose
+//     .connect('mongodb+srv://bratik026:ZnFa1997@cluster0.4oaxb.mongodb.net/?retryWrites=true&w=majority')
+//     .then(() => console.log('DB OK'))
+//     .catch((err) => console.log('DB ERROR', err));
+
+
+// const app = express();
+
+// app.use(express.json());
+
+// app.get('/', (req, res) => {
+//     res.send('Hello world');
+// });
+
+
+// // app.post('/auth/login', (req, res) => {
+
+// // });
+
+// app.listen(4444, (err) => {
+//     if (err) {
+//         return console.log(err);
+//     }
+
+//     console.log('Server ok');
+// });
+
 let timerId,
     pos = 0,
     idAnim,
@@ -18,6 +49,7 @@ let   btn = document.querySelector('#btn_start'),
       mainWord = document.querySelector('.mainWord'),
       descWord = document.querySelector('.descWord'),
       idImg = document.querySelector('#idImg'),
+      mainTwo = document.querySelector('.mainTwo'),
       dateWord = document.querySelector('.dateWord');
 
 // class wordsParam {
@@ -72,6 +104,18 @@ let WordsArr = [
     {
         name: 'Согбенный.',
         desc: 'Сгорбленный, согнутый.',
+    },
+    {
+        name: 'Изобиловать.',
+        desc: 'Иметь что-либо в большом количестве.',
+    },
+    {
+        name: 'Лакей.',
+        desc: 'Слуга в частном доме.',
+    },
+    {
+        name: 'Мириада.',
+        desc: 'Бесчисленное количество.',
     }
 
 
@@ -319,18 +363,30 @@ btn.addEventListener('click', () => {
     btn.remove();
     select.remove();
     hello_h1.remove();
-    btn_next.style.display = 'block';
+    // btn_next.style.display = 'block';
     alert_info.style.display = 'block';
     showWords.style.display = 'flex';
 });
 
 
-btn_next.addEventListener('click', () => {
+// btn_next.addEventListener('click', () => {
+//     if (select.value == 'Слова') {
+//         words();
+//     } else {
+//         logger();
+//     }
+// });
+
+mainTwo.addEventListener('touchend', (e) => {
+    e.preventDefault();
+
     if (select.value == 'Слова') {
         words();
     } else {
         logger();
     }
+    
+    
 });
 
 function randomInteger(min, max) {

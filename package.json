@@ -3,9 +3,23 @@
   "version": "1.0.0",
   "description": "qq all",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon start.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Boyenerji/Sience.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Boyenerji/Sience/issues"
+  },
+  "homepage": "https://github.com/Boyenerji/Sience#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.6.5",
+    "nodemon": "^2.0.20"
+  }
 }
