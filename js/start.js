@@ -237,7 +237,7 @@ function words() {
         location.reload();
     } else {
         main.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
-        btn_next.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
+        // btn_next.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
         if ((WordsArr.length - 1) != 0) {
             alert_info.innerHTML = WordsArr.length - 1;
         } else {
@@ -250,7 +250,7 @@ function words() {
         WordsArr.splice(i, 1);
         setTimeout(() => {
              main.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
-             btn_next.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
+            //  btn_next.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
         }, 800);
 
     }
@@ -342,7 +342,7 @@ function logger() {
 
 btn.addEventListener('click', () => {
     if (select.value == 'Слова') {
-        btn_next.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
+        // btn_next.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
         // mainWord.classList.add('decoration-sky-500');
         // mainWord.classList.add('text-green-500');
         mainWord.classList.add('underline');
