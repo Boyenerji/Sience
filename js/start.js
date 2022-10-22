@@ -342,6 +342,7 @@ function logger() {
 
 btn.addEventListener('click', () => {
     if (select.value == 'Слова') {
+        body.style.justifyContent = 'center'
         // btn_next.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
         // mainWord.classList.add('decoration-sky-500');
         // mainWord.classList.add('text-green-500');
@@ -384,9 +385,17 @@ mainTwo.addEventListener('touchend', (e) => {
         words();
     } else {
         logger();
-    }
-    
-    
+    }  
+});
+
+showWords.addEventListener('touchend', (e) => {
+    e.preventDefault();
+
+    if (select.value == 'Слова') {
+        words();
+    } else {
+        logger();
+    }  
 });
 
 function randomInteger(min, max) {
