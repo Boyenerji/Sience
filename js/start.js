@@ -50,6 +50,7 @@ let   btn = document.querySelector('#btn_start'),
       descWord = document.querySelector('.descWord'),
       idImg = document.querySelector('#idImg'),
       mainTwo = document.querySelector('.mainTwo'),
+      next = document.querySelector('.next'),
       dateWord = document.querySelector('.dateWord');
 
 // class wordsParam {
@@ -241,7 +242,7 @@ function words() {
         location.reload();
     } else {
         main.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
-        // btn_next.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
+        next.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
         if ((WordsArr.length - 1) != 0) {
             alert_info.innerHTML = WordsArr.length - 1;
         } else {
@@ -254,7 +255,7 @@ function words() {
         WordsArr.splice(i, 1);
         setTimeout(() => {
              main.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
-            //  btn_next.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
+             next.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
         }, 800);
 
     }
@@ -268,6 +269,7 @@ function logger() {
             dateWord.style.display = 'none';
         }
         main.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
+        next.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
         if ((arrWords.length - 1) != 0) {
             alert_info.innerHTML = arrWords.length - 1;
         } else {
@@ -303,6 +305,7 @@ function logger() {
             arrWords.splice(i, 1);
             setTimeout(() => {
                 main.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
+                next.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
             }, 800);
         };
         // picWord.innerHTML = arrWords[i].pic;
@@ -345,8 +348,9 @@ function logger() {
 
 
 btn.addEventListener('click', () => {
+    next.style.display = 'flex';
     if (select.value == 'Слова') {
-        body.style.justifyContent = 'center'
+        body.style.justifyContent = 'space-evenly';
         // btn_next.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
         // mainWord.classList.add('decoration-sky-500');
         // mainWord.classList.add('text-green-500');
@@ -369,24 +373,19 @@ btn.addEventListener('click', () => {
     select.remove();
     hello_h1.remove();
 
-    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        // код для мобильных устройств
-      } else {
-       btn_next.style.display = 'block';
-    }
 
     alert_info.style.display = 'block';
     showWords.style.display = 'flex';
 });
 
 
-btn_next.addEventListener('click', () => {
-    if (select.value == 'Слова') {
-        words();
-    } else {
-        logger();
-    }
-});
+// btn_next.addEventListener('click', () => {
+//     if (select.value == 'Слова') {
+//         words();
+//     } else {
+//         logger();
+//     }
+// });
 
 // mainTwo.addEventListener('touchend', (e) => {
 //     e.preventDefault();
@@ -398,7 +397,17 @@ btn_next.addEventListener('click', () => {
 //     }  
 // });
 
-showWords.addEventListener('touchend', (e) => {
+// showWords.addEventListener('touchend', (e) => {
+//     e.preventDefault();
+
+//     if (select.value == 'Слова') {
+//         words();
+//     } else {
+//         logger();
+//     }  
+// });
+
+next.addEventListener('click', (e) => {
     e.preventDefault();
 
     if (select.value == 'Слова') {
