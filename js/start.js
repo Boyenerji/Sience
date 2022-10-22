@@ -116,6 +116,10 @@ let WordsArr = [
     {
         name: 'Мириада.',
         desc: 'Бесчисленное количество.',
+    },
+    {
+        name: 'Филантроп.',
+        desc: 'Благотворитель. Покровитель нуждающихся.',
     }
 
 
@@ -364,29 +368,35 @@ btn.addEventListener('click', () => {
     btn.remove();
     select.remove();
     hello_h1.remove();
-    // btn_next.style.display = 'block';
+
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        // код для мобильных устройств
+      } else {
+       btn_next.style.display = 'block';
+    }
+
     alert_info.style.display = 'block';
     showWords.style.display = 'flex';
 });
 
 
-// btn_next.addEventListener('click', () => {
-//     if (select.value == 'Слова') {
-//         words();
-//     } else {
-//         logger();
-//     }
-// });
-
-mainTwo.addEventListener('touchend', (e) => {
-    e.preventDefault();
-
+btn_next.addEventListener('click', () => {
     if (select.value == 'Слова') {
         words();
     } else {
         logger();
-    }  
+    }
 });
+
+// mainTwo.addEventListener('touchend', (e) => {
+//     e.preventDefault();
+
+//     if (select.value == 'Слова') {
+//         words();
+//     } else {
+//         logger();
+//     }  
+// });
 
 showWords.addEventListener('touchend', (e) => {
     e.preventDefault();
