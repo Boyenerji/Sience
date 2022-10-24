@@ -231,6 +231,18 @@ let arrWords = [
         name: 'Мул.',
         desc: 'Домашнее животное, помесь осла с кобылой.',
         dateWord: ''
+    },
+    {
+        pic:  '',
+        name: 'История 1.',
+        desc: 
+        `
+        В октябре 1945 года служивший в Японии американец Чарли Сваарт внезапно почувствовал себя пьяным, хотя несколько дней не прикасался к алкоголю'. После того как он выспался, опьянение прошло, но через некоторое время вернулось опять.
+        Чарли уверял коллег и друзей, что вообще не пьет, но он постоянно был как будто слегка навеселе, так что окружающим было трудно ему поверить. Доктора, к которым Чарли обращался за помощью, разводили рука-ми: в образцах крови и выдыхаемом воздухе в самом деле присутствовал этиловый спирт, но откуда он появляется в организме Чарли, оставалось неизвестным.
+        Только через двадцать лет вынужденного пьянства Чарли удалось выяснить, что в истории медицины был еще один такой же случай. Японский бизнесмен так же, как и Чар-ли, внезапно и без видимых причин становился пьяным.
+        Но в его случае докторам удалось докопаться до причины: оказалось, что в кишечнике жертвы алкоголизма жили грибы Candida albicans. Вообще-то они живут на слизистых оболочках большинства людей и, как правило, не причиняют никакого вреда, но японцу повезло заполучить редкий штамм: его грибы перерабатывали любые углеводы, поступающие с пищей, в этиловый спирт и выделяли его в кишечник, где он усваивался так же, как при обычном приеме алкоголя. 
+        .`,
+        dateWord: ''
     }
 
 ];
@@ -281,37 +293,59 @@ function logger() {
         
         // idImg.src = '../pictures/no_photo.png';
         idImg.style.display = 'none';
-        idImg.src = `${arrWords[i].pic}`;
-        mainWord.innerHTML = 'wait...'
-        descWord.innerHTML = 'wait...';
-        idImg.onload = () => {
-            idImg.style.display = 'block';
-            console.log(i);
-            console.log(arrWords[i].name);
-            console.log(arrWords[i].desc);
+
+        // console.log(arrWords[i].pic);
+
+
+        if (arrWords[i].pic == '') {
             mainWord.innerHTML = arrWords[i].name;
-            descWord.innerHTML = arrWords[i].desc;
-
-            if (arrWords[i].dateWord.length > 0) {
-                dateWord.innerHTML = '';
-                dateWord.style.display = 'flex';
-                dateWord.innerHTML += 
-                `<svg width="22" height="22" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2a10 10 0 1 0 0 20 10 10 0 1 0 0-20z"></path>
-                    <path d="M12 6v6l4 2"></path>
-                </svg>`;
-                dateWord.innerHTML += `<p>${arrWords[i].dateWord}</p>`;
-            }
-            arrWords.splice(i, 1);
-            setTimeout(() => {
-                main.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
-                next.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
-            }, 800);
-        };
-        // picWord.innerHTML = arrWords[i].pic;
-
+                descWord.innerHTML = arrWords[i].desc;
     
-        
+                if (arrWords[i].dateWord.length > 0) {
+                    dateWord.innerHTML = '';
+                    dateWord.style.display = 'flex';
+                    dateWord.innerHTML += 
+                    `<svg width="22" height="22" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 1 0 0-20z"></path>
+                        <path d="M12 6v6l4 2"></path>
+                    </svg>`;
+                    dateWord.innerHTML += `<p>${arrWords[i].dateWord}</p>`;
+                }
+                arrWords.splice(i, 1);
+                setTimeout(() => {
+                    main.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
+                    next.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
+                }, 800);
+        }else {
+            idImg.src = `${arrWords[i].pic}`;
+            mainWord.innerHTML = 'wait...'
+            descWord.innerHTML = 'wait...';
+            idImg.onload = () => {
+                idImg.style.display = 'block';
+                console.log(i);
+                console.log(arrWords[i].name);
+                console.log(arrWords[i].desc);
+                mainWord.innerHTML = arrWords[i].name;
+                descWord.innerHTML = arrWords[i].desc;
+    
+                if (arrWords[i].dateWord.length > 0) {
+                    dateWord.innerHTML = '';
+                    dateWord.style.display = 'flex';
+                    dateWord.innerHTML += 
+                    `<svg width="22" height="22" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2a10 10 0 1 0 0 20 10 10 0 1 0 0-20z"></path>
+                        <path d="M12 6v6l4 2"></path>
+                    </svg>`;
+                    dateWord.innerHTML += `<p>${arrWords[i].dateWord}</p>`;
+                }
+                arrWords.splice(i, 1);
+                setTimeout(() => {
+                    main.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
+                    next.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
+                }, 800);
+            };
+        }
+
     }
 }
 
@@ -397,15 +431,15 @@ btn.addEventListener('click', () => {
 //     }  
 // });
 
-// showWords.addEventListener('touchend', (e) => {
-//     e.preventDefault();
+showWords.addEventListener('touchend', (e) => {
+    e.preventDefault();
 
-//     if (select.value == 'Слова') {
-//         words();
-//     } else {
-//         logger();
-//     }  
-// });
+    if (select.value == 'Слова') {
+        words();
+    } else {
+        logger();
+    }  
+});
 
 next.addEventListener('click', (e) => {
     e.preventDefault();
@@ -430,8 +464,6 @@ function DarkTheme() {
         hello_h1.style.color = '#fff';
         main.style.backgroundColor = '#495057';
         descWord.style.color = 'rgb(209 213 219)';
-        alert_info.style.backgroundColor = '#343a40';
-        alert_info.style.color = '#fff';
         select.style.backgroundColor = '#6c757d';
         select.style.color = '#fff';
         dateWord.style.color = '#fff';
