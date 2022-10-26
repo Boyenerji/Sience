@@ -234,14 +234,16 @@ let arrWords = [
     },
     {
         pic:  '',
-        name: 'История 1.',
+        name: 'Крылатая ракета "Циркон".',
         desc: 
         `
-        В октябре 1945 года служивший в Японии американец Чарли Сваарт внезапно почувствовал себя пьяным, хотя несколько дней не прикасался к алкоголю'. После того как он выспался, опьянение прошло, но через некоторое время вернулось опять.
-        Чарли уверял коллег и друзей, что вообще не пьет, но он постоянно был как будто слегка навеселе, так что окружающим было трудно ему поверить. Доктора, к которым Чарли обращался за помощью, разводили рука-ми: в образцах крови и выдыхаемом воздухе в самом деле присутствовал этиловый спирт, но откуда он появляется в организме Чарли, оставалось неизвестным.
-        Только через двадцать лет вынужденного пьянства Чарли удалось выяснить, что в истории медицины был еще один такой же случай. Японский бизнесмен так же, как и Чар-ли, внезапно и без видимых причин становился пьяным.
-        Но в его случае докторам удалось докопаться до причины: оказалось, что в кишечнике жертвы алкоголизма жили грибы Candida albicans. Вообще-то они живут на слизистых оболочках большинства людей и, как правило, не причиняют никакого вреда, но японцу повезло заполучить редкий штамм: его грибы перерабатывали любые углеводы, поступающие с пищей, в этиловый спирт и выделяли его в кишечник, где он усваивался так же, как при обычном приеме алкоголя. 
-        .`,
+            Российская гиперзвуковая противокорабельная крылатая ракета.
+            Запускается с подводных лодок и с атомных ракетных крейсеров.
+            <ol class="list-decimal">
+                <li>Скорость полёта: 10тыс/кмч.</li>
+                <li>Дальность полёта: 1000км.</li>
+            </ol>
+        `,
         dateWord: ''
     }
 
@@ -390,10 +392,11 @@ btn.addEventListener('click', () => {
         // mainWord.classList.add('text-green-500');
         mainWord.classList.add('underline');
         mainWord.classList.remove('fs-3');
-        mainWord.classList.add('text-2xl');
+        mainWord.classList.add('text-3xl');
         descWord.classList.remove('fs-5');
         descWord.classList.add('font-thin');
-        descWord.classList.add('text-lg');
+        descWord.classList.add('text-xl');
+        descWord.style.padding = '10px';
         // descWord.classList.add('text-white');
         // descWord.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
         picWord.remove();
@@ -431,15 +434,15 @@ btn.addEventListener('click', () => {
 //     }  
 // });
 
-showWords.addEventListener('touchend', (e) => {
-    e.preventDefault();
+// showWords.addEventListener('touchend', (e) => {
+//     e.preventDefault();
 
-    if (select.value == 'Слова') {
-        words();
-    } else {
-        logger();
-    }  
-});
+//     if (select.value == 'Слова') {
+//         words();
+//     } else {
+//         logger();
+//     }  
+// });
 
 next.addEventListener('click', (e) => {
     e.preventDefault();
@@ -460,9 +463,9 @@ DarkTheme();
 function DarkTheme() {
     let date = new Date();
     if (date.getHours() > 17 || date.getHours() < 6) {
-        body.style.backgroundColor = '#343a40';
+        body.classList.add('dark:bg-slate-800');
         hello_h1.style.color = '#fff';
-        main.style.backgroundColor = '#495057';
+        main.classList.add('dark:bg-slate-700');
         descWord.style.color = 'rgb(209 213 219)';
         select.style.backgroundColor = '#6c757d';
         select.style.color = '#fff';
