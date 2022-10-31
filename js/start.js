@@ -131,8 +131,12 @@ let WordsArr = [
         desc: 'Властный человек, стесняющий чью-либо свободу. Охранники, надсмотрщики.',
     },
     {
-        name: 'ЛохАнь.',
+        name: 'Лоха&#x301;нь.',
         desc: 'Круглая или овальная посудина для стирки белья или мытья посуды.',
+    },
+    {
+        name: 'Рекогносцировка.',
+        desc: 'Изучение расположения противника и местности перед предстоящими боевыми действиями.',
     }
 
 
@@ -170,6 +174,24 @@ let arrWords = [
         name: 'Куликовская битва.',
         desc: 'Крупное сражение между русским войском и войском Золотой Орды.',
         dateWord: '8 сентября 1380 года.'
+    },
+    {
+        pic:  '../pictures/scale_1200.webp',
+        name: 'Т-90М (Прорыв 3).',
+        desc: `
+            <ol class="list-decimal list-inside">
+                <li>Специальный короб для боеприпасов расположенный в задней части башни.</li>
+                <li>Дизельный мотор мощностью 1130лс.</li>
+                <li>Макс скорость - 60км/ч и запас хода 550км.</li>
+                <li>Имеется комлект "Накидка" которая состоит из многослойных чехлов, расположенных на корпусе и башне боевой машины.</li>
+                <li>Модульный комплекс динамической системы "Реликт".</li>
+                <li>Пушка высокой баллистики калибра 125мм.</li>
+                <li>Для дополнительного вооружения Т-90М оснастили ПТРК "Рефлекс-М" — комплексом управляемого танкового ракетного вооружения для борьбы с вражескими танками.</li>
+                <li>А также ПТРК "Инвар" предназначенная для аналогичных целей. У Т-90М есть два пулемёта калибров 7.62 мм и 12.7 мм.</li>
+                <li>Установлен цифровой комплекс управления огнем "Калина".</li>
+            </ol>
+        `,
+        dateWord: ''
     },
     {
         pic:  '../pictures/pravo.jpg',
@@ -257,7 +279,17 @@ let arrWords = [
             </ol>
         `,
         dateWord: ''
-    }
+    },
+    {
+        pic:  '../pictures/gas2.jpg',
+        name: 'Светильный газ.',
+        desc: 
+        `
+            Смесь водорода (50 %), метана (34 %), угарного газа (8 %) и других горючих газов, получаемая при пиролизе каменного угля или нефти.
+            Светильный газ разработан немецким химиком Фридрихом Аккумом. Он применялся для освещения в газовых фонарях и в качестве топлива.
+        `,
+        dateWord: ''
+    },
 
 ];
 
@@ -291,6 +323,7 @@ function logger() {
     if (arrWords.length == 0) {
         location.reload();
     } else {
+        descWord.classList.add('blur-sm');
         if (dateWord.style.display == 'flex') {
             dateWord.style.display = 'none';
         }
@@ -408,6 +441,7 @@ btn.addEventListener('click', () => {
         descWord.classList.remove('fs-5');
         descWord.classList.add('font-thin');
         descWord.classList.add('text-xl');
+        descWord.classList.add('leading-relaxed');
         descWord.style.padding = '10px';
         // descWord.classList.add('text-white');
         // descWord.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
@@ -455,6 +489,11 @@ btn.addEventListener('click', () => {
 //         logger();
 //     }  
 // });
+descWord.addEventListener('click', (e) => {
+    e.preventDefault();
+    descWord.classList.remove('blur-sm');
+});
+
 
 next.addEventListener('click', (e) => {
     e.preventDefault();
