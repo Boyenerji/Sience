@@ -40,9 +40,11 @@ body {
     color: rgb(71 85 105);
 }
 
+
 .next:hover {
     cursor: pointer;
 }
+
 
 
 .selectID {

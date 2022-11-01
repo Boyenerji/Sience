@@ -34,6 +34,7 @@
 let timerId,
     pos = 0,
     idAnim,
+    randomWords,
     clown;
 
 let   btn = document.querySelector('#btn_start'),
@@ -144,13 +145,12 @@ let WordsArr = [
     },
     {
         name: 'Пренебрежение.',
-        desc: 'Отсутсвие внимания к кому-либо, чему-либо. Недостаток уважения к кому-либо.',
+        desc: 'Отсутствие внимания к кому-либо, чему-либо. Недостаток уважения к кому-либо.',
     },
     {
         name: 'Щепетильность.',
         desc: 'Строго, до мелочей последовательный и принципиальный.',
     }
-
 
 ];
 
@@ -311,7 +311,17 @@ function words() {
     if (WordsArr.length == 0) {
         location.reload();
     } else {
-        descWord.classList.add('blur-sm');
+        mainWord.classList.remove('blur-sm');
+        descWord.classList.remove('blur-sm');
+        randomWords = randomInteger(1, 2);
+        console.log(randomWords);
+        if (randomWords == 1) {
+            mainWord.classList.add('blur-sm');
+            mainWord.style.cursor = 'pointer';
+        } else {
+            descWord.classList.add('blur-sm');
+            descWord.style.cursor = 'pointer';
+        }
         main.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
         next.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
         if ((WordsArr.length - 1) != 0) {
@@ -337,6 +347,7 @@ function logger() {
         location.reload();
     } else {
         descWord.classList.add('blur-sm');
+        dateWord.classList.add('blur-sm');
         if (dateWord.style.display == 'flex') {
             dateWord.style.display = 'none';
         }
@@ -376,7 +387,7 @@ function logger() {
                     main.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
                     next.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
                 }, 800);
-        }else {
+        } else {
             idImg.src = `${arrWords[i].pic}`;
             mainWord.innerHTML = 'wait...'
             descWord.innerHTML = 'wait...';
@@ -504,7 +515,20 @@ btn.addEventListener('click', () => {
 // });
 descWord.addEventListener('click', (e) => {
     e.preventDefault();
+    descWord.style.cursor = 'auto';
     descWord.classList.remove('blur-sm');
+});
+
+mainWord.addEventListener('click', (e) => {
+    e.preventDefault();
+    descWord.style.cursor = 'auto';
+    mainWord.classList.remove('blur-sm');
+});
+
+dateWord.addEventListener('click', (e) => {
+    e.preventDefault();
+    dateWord.style.cursor = 'auto';
+    dateWord.classList.remove('blur-sm');
 });
 
 
