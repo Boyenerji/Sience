@@ -137,6 +137,18 @@ let WordsArr = [
     {
         name: 'Рекогносцировка.',
         desc: 'Изучение расположения противника и местности перед предстоящими боевыми действиями.',
+    },
+    {
+        name: 'Взыскательный.',
+        desc: 'Предъявляющий строгие требования.',
+    },
+    {
+        name: 'Пренебрежение.',
+        desc: 'Отсутсвие внимания к кому-либо, чему-либо. Недостаток уважения к кому-либо.',
+    },
+    {
+        name: 'Щепетильность.',
+        desc: 'Строго, до мелочей последовательный и принципиальный.',
     }
 
 
@@ -299,6 +311,7 @@ function words() {
     if (WordsArr.length == 0) {
         location.reload();
     } else {
+        descWord.classList.add('blur-sm');
         main.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
         next.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
         if ((WordsArr.length - 1) != 0) {
