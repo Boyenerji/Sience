@@ -33,6 +33,7 @@
 
 let timerId,
     pos = 0,
+    randText = randomInteger(1,2),
     idAnim,
     randomWords,
     clown;
@@ -491,6 +492,11 @@ btn.addEventListener('click', () => {
         // btn_next.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
         // mainWord.classList.add('decoration-sky-500');
         // mainWord.classList.add('text-green-500');
+        if (randText == 1) {
+            mainWord.classList.add('text-green-500');
+        } else {
+            mainWord.classList.add('text-purple-400');
+        }
         mainWord.classList.add('underline');
         mainWord.classList.remove('fs-3');
         mainWord.classList.add('text-3xl');
@@ -564,6 +570,31 @@ dateWord.addEventListener('click', (e) => {
 });
 
 
+
+inputText.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        if (select.value == 'Слова') {
+            if (randomWords == 1) {
+                console.dir(mainWord);
+                console.dir(inputText);
+                if (mainWord.innerHTML == inputText.value) {
+                    console.log('Congrat');
+                    words();
+                } else {
+                    error.style.display = 'block';
+                }
+            } else {
+                words();
+            }
+            // console.log(inputText.value);
+        } else {
+            logger();
+        } 
+    }
+});
+
+
+
 next.addEventListener('click', (e) => {
     e.preventDefault();
     if (select.value == 'Слова') {
@@ -585,6 +616,14 @@ next.addEventListener('click', (e) => {
     }  
 });
 
+
+// document.addEventListener('keypress', function (e) {
+//     if (e.key === 'Enter') {
+//         next.click();
+//     }
+// });
+
+
 function randomInteger(min, max) {
     let rand = min - 0.5 + Math.random() * (max - min + 1);
     return Math.round(rand);
@@ -601,5 +640,6 @@ function DarkTheme() {
         select.style.backgroundColor = '#6c757d';
         select.style.color = '#fff';
         dateWord.style.color = '#fff';
+
     }
 }
