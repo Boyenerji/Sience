@@ -52,6 +52,8 @@ let   btn = document.querySelector('#btn_start'),
       idImg = document.querySelector('#idImg'),
       mainTwo = document.querySelector('.mainTwo'),
       next = document.querySelector('.next'),
+      inputText = document.querySelector('#inputText'),
+      error = document.querySelector('#error'),
       dateWord = document.querySelector('.dateWord');
 
 // class wordsParam {
@@ -80,76 +82,88 @@ let   btn = document.querySelector('#btn_start'),
 
 let WordsArr = [
     {
-        name: 'Гнусный.',
-        desc: 'Внушающий отвращение, омерзительный.',
+        name: 'Гнусный',
+        desc: 'Внушающий отвращение, омерзительный',
     },
     {
-        name: 'Разверзаться.',
-        desc: 'Широко раскрываться, раздвигаться.',
+        name: 'Разверзаться',
+        desc: 'Широко раскрываться, раздвигаться',
     },
     {
-        name: 'Экспансивный.',
-        desc: 'Бурно проявляющий свои чувства.',
+        name: 'Антракт',
+        desc: 'Перерыв между какими-либо действиями',
     },
     {
-        name: 'Удручённый.',
-        desc: 'Крайне огорчённый, находящийся в подавленном состоянии.',
+        name: 'Осунуться',
+        desc: 'Сильно похудеть',
     },
     {
-        name: 'Фригидный.',
-        desc: 'Холодный, безразличный в половых отношениях.',
+        name: 'Сорочка',
+        desc: 'Рубашка',
     },
     {
-        name: 'Флагелляция.',
-        desc: 'Порка подчиняющегося партнера доминирующим при помощи различных предметов.',
+        name: 'Экспансивный',
+        desc: 'Бурно проявляющий свои чувства',
     },
     {
-        name: 'Согбенный.',
-        desc: 'Сгорбленный, согнутый.',
+        name: 'Удручённый',
+        desc: 'Крайне огорчённый, находящийся в подавленном состоянии',
     },
     {
-        name: 'Изобиловать.',
-        desc: 'Иметь что-либо в большом количестве.',
+        name: 'Фригидный',
+        desc: 'Холодный, безразличный в половых отношениях',
     },
     {
-        name: 'Лакей.',
-        desc: 'Слуга в частном доме.',
+        name: 'Флагелляция',
+        desc: 'Порка подчиняющегося партнера доминирующим при помощи различных предметов',
     },
     {
-        name: 'Мириада.',
-        desc: 'Бесчисленное количество.',
+        name: 'Согбенный',
+        desc: 'Сгорбленный, согнутый',
     },
     {
-        name: 'Филантроп.',
-        desc: 'Благотворитель. Покровитель нуждающихся.',
+        name: 'Изобиловать',
+        desc: 'Иметь что-либо в большом количестве',
     },
     {
-        name: 'Пассат.',
-        desc: 'Постоянное воздушное течение в тропических широтах над океанами.',
+        name: 'Лакей',
+        desc: 'Слуга в частном доме',
     },
     {
-        name: 'Цербер.',
-        desc: 'Властный человек, стесняющий чью-либо свободу. Охранники, надсмотрщики.',
+        name: 'Мириада',
+        desc: 'Бесчисленное количество',
     },
     {
-        name: 'Лоха&#x301;нь.',
-        desc: 'Круглая или овальная посудина для стирки белья или мытья посуды.',
+        name: 'Филантроп',
+        desc: 'Благотворитель. Покровитель нуждающихся',
     },
     {
-        name: 'Рекогносцировка.',
-        desc: 'Изучение расположения противника и местности перед предстоящими боевыми действиями.',
+        name: 'Пассат',
+        desc: 'Постоянное воздушное течение в тропических широтах над океанами',
     },
     {
-        name: 'Взыскательный.',
-        desc: 'Предъявляющий строгие требования.',
+        name: 'Цербер',
+        desc: 'Властный человек, стесняющий чью-либо свободу. Охранники, надсмотрщики',
     },
     {
-        name: 'Пренебрежение.',
-        desc: 'Отсутствие внимания к кому-либо, чему-либо. Недостаток уважения к кому-либо.',
+        name: 'Лохань',
+        desc: 'Круглая или овальная посудина для стирки белья или мытья посуды',
     },
     {
-        name: 'Щепетильность.',
-        desc: 'Строго, до мелочей последовательный и принципиальный.',
+        name: 'Рекогносцировка',
+        desc: 'Изучение расположения противника и местности перед предстоящими боевыми действиями',
+    },
+    {
+        name: 'Взыскательный',
+        desc: 'Предъявляющий строгие требования',
+    },
+    {
+        name: 'Пренебрежение',
+        desc: 'Отсутствие внимания к кому-либо, чему-либо',
+    },
+    {
+        name: 'Щепетильность',
+        desc: 'До мелочей последовательный и принципиальный',
     }
 
 ];
@@ -311,13 +325,28 @@ function words() {
     if (WordsArr.length == 0) {
         location.reload();
     } else {
-        mainWord.classList.remove('blur-sm');
+
+
+        
+
+        if (inputText.style.display == 'block') {
+            inputText.value = '';
+            inputText.style.display = 'none';
+        }
+
+
+        if (error.style.display == 'block') {
+            error.style.display = 'none';
+        }
+
+        mainWord.classList.remove('blur');
         descWord.classList.remove('blur-sm');
         randomWords = randomInteger(1, 2);
         console.log(randomWords);
         if (randomWords == 1) {
-            mainWord.classList.add('blur-sm');
+            mainWord.classList.add('blur');
             mainWord.style.cursor = 'pointer';
+        
         } else {
             descWord.classList.add('blur-sm');
             descWord.style.cursor = 'pointer';
@@ -333,6 +362,9 @@ function words() {
         console.log(i);
         mainWord.innerHTML = WordsArr[i].name;
         descWord.innerHTML = WordsArr[i].desc;
+        if (randomWords == 1) {
+            inputText.style.display = 'block';
+        }
         WordsArr.splice(i, 1);
         setTimeout(() => {
              main.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
@@ -522,7 +554,7 @@ descWord.addEventListener('click', (e) => {
 mainWord.addEventListener('click', (e) => {
     e.preventDefault();
     descWord.style.cursor = 'auto';
-    mainWord.classList.remove('blur-sm');
+    mainWord.classList.remove('blur');
 });
 
 dateWord.addEventListener('click', (e) => {
@@ -534,9 +566,20 @@ dateWord.addEventListener('click', (e) => {
 
 next.addEventListener('click', (e) => {
     e.preventDefault();
-
     if (select.value == 'Слова') {
-        words();
+        if (randomWords == 1) {
+            console.dir(mainWord);
+            console.dir(inputText);
+            if (mainWord.innerHTML == inputText.value) {
+                console.log('Congrat');
+                words();
+            } else {
+                error.style.display = 'block';
+            }
+        } else {
+            words();
+        }
+        // console.log(inputText.value);
     } else {
         logger();
     }  

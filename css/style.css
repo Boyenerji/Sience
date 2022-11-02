@@ -45,7 +45,17 @@ body {
     cursor: pointer;
 }
 
+#inputText {
+    display: none;
+    padding: 10px;
+    border-radius: 8px;
+}
 
+#error {
+    display: none;
+    color: red;
+    margin-top: 10px;
+}
 
 .selectID {
     border-radius: 8px;
