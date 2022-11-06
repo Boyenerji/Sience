@@ -397,7 +397,8 @@ function logger() {
         if ((arrWords.length - 1) != 0) {
             alert_info.innerHTML = arrWords.length - 1;
         } else {
-            alert_info.innerHTML = 'Последняя';
+            alert_info.remove();
+            // alert_info.innerHTML = 'Последняя';
         }
         let i = randomInteger(0, arrWords.length - 1);
         console.log(i);
@@ -520,8 +521,8 @@ btn.addEventListener('click', () => {
     } else {
         logger();
     }
-    clown = select.value;
-    alert_info.style.display = 'block';
+    // clown = select.value;
+    // alert_info.style.display = 'block';
     btn.remove();
     select.remove();
     hello_h1.remove();
