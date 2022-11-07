@@ -55,6 +55,7 @@ let   btn = document.querySelector('#btn_start'),
       next = document.querySelector('.next'),
       inputText = document.querySelector('#inputText'),
       error = document.querySelector('#error'),
+      dalee = document.querySelector('#dalee'),
       dateWord = document.querySelector('.dateWord');
 
 // class wordsParam {
@@ -107,7 +108,7 @@ let WordsArr = [
         desc: 'Бурно проявляющий свои чувства',
     },
     {
-        name: 'Удручённый',
+        name: 'Удрученный',
         desc: 'Крайне огорчённый, находящийся в подавленном состоянии',
     },
     {
@@ -171,7 +172,7 @@ let WordsArr = [
         desc: 'Отсутствие внимания к кому-либо, чему-либо',
     },
     {
-        name: 'Щепетильность',
+        name: 'Щепетильный',
         desc: 'До мелочей последовательный и принципиальный',
     }
 
@@ -365,7 +366,9 @@ function words() {
         if ((WordsArr.length - 1) != 0) {
             alert_info.innerHTML = WordsArr.length - 1;
         } else {
-            alert_info.innerHTML = 'Последняя';
+            dalee.innerText = 'Конец.'
+            alert_info.remove();
+            // alert_info.innerHTML = 'Последняя';
         }
         let i = randomInteger(0, WordsArr.length - 1);
         console.log(i);
