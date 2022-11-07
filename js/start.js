@@ -517,15 +517,12 @@ btn.addEventListener('click', () => {
         descWord.classList.add('text-xl');
         descWord.classList.add('leading-relaxed');
         descWord.style.padding = '10px';
-        // descWord.classList.add('text-white');
-        // descWord.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
         picWord.remove();
         words();
     } else {
         logger();
     }
-    // clown = select.value;
-    // alert_info.style.display = 'block';
+
     btn.remove();
     select.remove();
     hello_h1.remove();
@@ -544,15 +541,6 @@ btn.addEventListener('click', () => {
 //     }
 // });
 
-// mainTwo.addEventListener('touchend', (e) => {
-//     e.preventDefault();
-
-//     if (select.value == 'Слова') {
-//         words();
-//     } else {
-//         logger();
-//     }  
-// });
 
 // showWords.addEventListener('touchend', (e) => {
 //     e.preventDefault();
@@ -585,23 +573,24 @@ dateWord.addEventListener('click', (e) => {
 
 inputText.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
-        if (select.value == 'Слова') {
-            if (randomWords == 1) {
-                console.dir(mainWord);
-                console.dir(inputText);
-                if (mainWord.innerHTML == inputText.value) {
-                    console.log('Congrat');
-                    words();
-                } else {
-                    error.style.display = 'block';
-                }
-            } else {
-                words();
-            }
-            // console.log(inputText.value);
-        } else {
-            logger();
-        } 
+        protect();
+        // if (select.value == 'Слова') {
+        //     if (randomWords == 1) {
+        //         console.dir(mainWord);
+        //         console.dir(inputText);
+        //         if (mainWord.innerHTML.toLowerCase() == inputText.value.toLowerCase()) {
+        //             console.log('Congrat');
+        //             words();
+        //         } else {
+        //             error.style.display = 'block';
+        //         }
+        //     } else {
+        //         words();
+        //     }
+        //     // console.log(inputText.value);
+        // } else {
+        //     logger();
+        // } 
     }
 });
 
@@ -609,12 +598,16 @@ inputText.addEventListener('keypress', function (e) {
 
 next.addEventListener('click', (e) => {
     e.preventDefault();
+    protect();
+});
+
+
+function protect() {
     if (select.value == 'Слова') {
         if (randomWords == 1) {
             console.dir(mainWord);
             console.dir(inputText);
-            if (mainWord.innerHTML == inputText.value) {
-                console.log('Congrat');
+            if (mainWord.innerHTML.toLowerCase() == inputText.value.toLowerCase()) {
                 words();
             } else {
                 error.style.display = 'block';
@@ -622,18 +615,10 @@ next.addEventListener('click', (e) => {
         } else {
             words();
         }
-        // console.log(inputText.value);
     } else {
         logger();
-    }  
-});
-
-
-// document.addEventListener('keypress', function (e) {
-//     if (e.key === 'Enter') {
-//         next.click();
-//     }
-// });
+    } 
+}
 
 
 function randomInteger(min, max) {
@@ -652,6 +637,5 @@ function DarkTheme() {
         select.style.backgroundColor = '#6c757d';
         select.style.color = '#fff';
         dateWord.style.color = '#fff';
-
     }
 }
