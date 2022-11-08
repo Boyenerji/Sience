@@ -579,11 +579,11 @@ dateWord.addEventListener('click', (e) => {
 });
 
 
-document.addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-        protect();
-    }
-});
+// document.addEventListener('keypress', function (e) {
+//     if (e.key === 'Enter') {
+//         protect();
+//     }
+// });
 
 
 
@@ -604,9 +604,21 @@ next.addEventListener('click', (e) => {
 function protect() {
     if (select.value == 'Слова') {
         if (randomWords == 1) {
-            console.dir(mainWord);
-            console.dir(inputText);
-            if (mainWord.innerHTML.toLowerCase() == inputText.value.toLowerCase()) {
+            // console.dir(mainWord);
+            // console.dir(inputText);
+
+            // inputText.value.toLowerCase();
+            // mainWord.innerHTML.toLowerCase();
+
+            let mainWordLet = mainWord.innerHTML.toLowerCase();
+            let inputTextLet = inputText.value.toLowerCase();
+
+
+
+            console.log(mainWordLet.trim());
+            console.log(inputTextLet.trim());
+
+            if (mainWordLet.trim() == inputTextLet.trim()) {
                 words();
             } else {
                 error.style.display = 'block';
