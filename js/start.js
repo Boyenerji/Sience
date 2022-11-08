@@ -66,6 +66,7 @@ let   btn = document.querySelector('#btn_start'),
 //     }
 // }
 
+console.dir(inputText.autofocus);
 
 // let right = {
 //     Клоун: {
@@ -342,9 +343,6 @@ function words() {
         location.reload();
     } else {
 
-
-        
-
         if (inputText.style.display == 'block') {
             inputText.value = '';
             inputText.style.display = 'none';
@@ -358,7 +356,12 @@ function words() {
         mainWord.classList.remove('blur');
         descWord.classList.remove('blur-sm');
         randomWords = randomInteger(1, 2);
-        console.log(randomWords);
+
+
+        // console.log(randomWords);
+
+
+
         if (randomWords == 1) {
             mainWord.classList.add('blur');
             mainWord.style.cursor = 'pointer';
@@ -374,7 +377,6 @@ function words() {
         } else {
             dalee.innerText = 'Конец.'
             alert_info.remove();
-            // alert_info.innerHTML = 'Последняя';
         }
         let i = randomInteger(0, WordsArr.length - 1);
         console.log(i);
@@ -382,6 +384,7 @@ function words() {
         descWord.innerHTML = WordsArr[i].desc;
         if (randomWords == 1) {
             inputText.style.display = 'block';
+            inputText.focus();
         }
         WordsArr.splice(i, 1);
         setTimeout(() => {
@@ -576,27 +579,17 @@ dateWord.addEventListener('click', (e) => {
 });
 
 
+document.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        protect();
+    }
+});
+
+
 
 inputText.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         protect();
-        // if (select.value == 'Слова') {
-        //     if (randomWords == 1) {
-        //         console.dir(mainWord);
-        //         console.dir(inputText);
-        //         if (mainWord.innerHTML.toLowerCase() == inputText.value.toLowerCase()) {
-        //             console.log('Congrat');
-        //             words();
-        //         } else {
-        //             error.style.display = 'block';
-        //         }
-        //     } else {
-        //         words();
-        //     }
-        //     // console.log(inputText.value);
-        // } else {
-        //     logger();
-        // } 
     }
 });
 
