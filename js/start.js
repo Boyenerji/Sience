@@ -175,6 +175,10 @@ let WordsArr = [
     {
         name: 'Щепетильный',
         desc: 'До мелочей последовательный и принципиальный',
+    },
+    {
+        name: 'Забвение',
+        desc: 'Забыть, утратить',
     }
 
 ];
@@ -316,10 +320,10 @@ let arrWords = [
         `
             Российская гиперзвуковая противокорабельная крылатая ракета.
             Запускается с подводных лодок и с атомных ракетных крейсеров.<br>
-            <ol>
+            <ul class="list-disc list-inside underline decoration-indigo-500">
                 <li>Скорость полёта: 10тыс/кмч.</li>
                 <li>Дальность полёта: 1000км.</li>
-            </ol>
+            </ul>
         `,
         dateWord: ''
     },
@@ -338,11 +342,10 @@ let arrWords = [
         name: 'ГП (Гранатомёты подствольные).',
         desc: 
         `
-        <ol>
+        <ul class="list-disc list-inside underline decoration-indigo-500"">
             <li>ГП-25 (Костёр) однозарядный 40-мм подствольный гранатомёт.</li>
             <li>ГП-30 (Обувка) 40-мм подствольный гранатомёт, разработанный на основе конструкции ГП-25.</li>
-            <li>ГП-34.</li>
-        </ol>
+        </ul>
         `,
         dateWord: ''
     }
@@ -464,7 +467,7 @@ function logger() {
                 console.log(arrWords[i].name);
                 console.log(arrWords[i].desc);
                 mainWord.innerHTML = arrWords[i].name;
-                descWord.innerHTML = arrWords[i].desc;
+                descWord.innerHTML = '<p class="font-normal">' + arrWords[i].desc + '</p>' ;
     
                 if (arrWords[i].dateWord.length > 0) {
                     dateWord.innerHTML = '';
