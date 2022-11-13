@@ -1,5 +1,5 @@
 
-export let WordsArr = [{
+export const WordsArr = [{
     name: 'Гнусный',
     desc: 'Внушающий отвращение, омерзительный',
 },

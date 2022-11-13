@@ -3,13 +3,11 @@
 // const WordsArr = require('arrayFile');
 
 import { WordsArr } from './words.js';
+import { arrWords } from './posts.js';
 
-let timerId,
-    pos = 0,
+let 
     randText = randomInteger(1, 2),
-    idAnim,
-    randomWords,
-    clown;
+    randomWords;
 
 let btn = document.querySelector('#btn_start'),
     body = document.querySelector('body'),
@@ -31,299 +29,8 @@ let btn = document.querySelector('#btn_start'),
     dalee = document.querySelector('#dalee'),
     dateWord = document.querySelector('.dateWord');
 
-// class wordsParam {
-//     constructor(mainWord, descWord, pic) {
-//         this.mainWord = mainWord;
-//         this.descWord = descWord;
-//         this.pic = pic;
-//     }
-// }
 
-console.dir(inputText.autofocus);
-
-
-
-// let right = {
-//     Клоун: {
-//         rigth1: `<button class="btn" value='Клиун'>Клиун</button>`,
-//         right2: `<button class="btn" value='Клиун2'>Клиун2</button>`
-//     }
-// };
-
-// if (right.Клоун == )
-
-// // main.innerHTML = right.test1.rigth1;
-// console.dir(right);
-
-
-
-
-// let WordsArr = [{
-//         name: 'Гнусный',
-//         desc: 'Внушающий отвращение, омерзительный',
-//     },
-//     {
-//         name: 'Разверзаться',
-//         desc: 'Широко раскрываться, раздвигаться',
-//     },
-//     {
-//         name: 'Антракт',
-//         desc: 'Перерыв между какими-либо действиями',
-//     },
-//     {
-//         name: 'Осунуться',
-//         desc: 'Сильно похудеть',
-//     },
-//     {
-//         name: 'Сорочка',
-//         desc: 'Рубашка',
-//     },
-//     {
-//         name: 'Экспансивный',
-//         desc: 'Бурно проявляющий свои чувства',
-//     },
-//     {
-//         name: 'Удрученный',
-//         desc: 'Крайне огорчённый, находящийся в подавленном состоянии',
-//     },
-//     {
-//         name: 'Фригидный',
-//         desc: 'Холодный, безразличный в половых отношениях',
-//     },
-//     {
-//         name: 'Флагелляция',
-//         desc: 'Порка подчиняющегося партнера доминирующим при помощи различных предметов',
-//     },
-//     {
-//         name: 'Согбенный',
-//         desc: 'Сгорбленный, согнутый',
-//     },
-//     {
-//         name: 'Изобиловать',
-//         desc: 'Иметь что-либо в большом количестве',
-//     },
-//     {
-//         name: 'Лакей',
-//         desc: 'Слуга в частном доме',
-//     },
-//     {
-//         name: 'Околеть',
-//         desc: 'Умереть',
-//     },
-//     {
-//         name: 'Отвадить',
-//         desc: 'Заставить отвыкнуть от какой-либо привычки',
-//     },
-//     {
-//         name: 'Мириада',
-//         desc: 'Бесчисленное количество',
-//     },
-//     {
-//         name: 'Филантроп',
-//         desc: 'Благотворитель. Покровитель нуждающихся',
-//     },
-//     {
-//         name: 'Пассат',
-//         desc: 'Постоянное воздушное течение в тропических широтах над океанами',
-//     },
-//     {
-//         name: 'Цербер',
-//         desc: 'Властный человек, стесняющий чью-либо свободу. Охранники, надсмотрщики',
-//     },
-//     {
-//         name: 'Лохань',
-//         desc: 'Круглая или овальная посудина для стирки белья или мытья посуды',
-//     },
-//     {
-//         name: 'Рекогносцировка',
-//         desc: 'Изучение расположения противника и местности перед предстоящими боевыми действиями',
-//     },
-//     {
-//         name: 'Взыскательный',
-//         desc: 'Предъявляющий строгие требования',
-//     },
-//     {
-//         name: 'Пренебрежение',
-//         desc: 'Отсутствие внимания к кому-либо, чему-либо',
-//     },
-//     {
-//         name: 'Щепетильный',
-//         desc: 'До мелочей последовательный и принципиальный',
-//     },
-//     {
-//         name: 'Забвение',
-//         desc: 'Забыть, утратить',
-//     }
-
-// ];
-
-// WordsArr;
-
-let arrWords = [{
-        pic: '../pictures/termo.jpg',
-        name: 'Термобарические снаряды',
-        desc: 'Снаряды, при взрыве образующие облако аэрозоля горючего вещества.',
-        dateWord: ''
-    },
-    {
-        pic: '',
-        name: 'Бундесвер',
-        desc: 'Вооружённые силы Федеративной Республики Германия (Германии).',
-        dateWord: ''
-    },
-    {
-        pic: '../pictures/pic2.jpg',
-        name: 'СПЗ (Система постановки завес)',
-        desc: 'Аэрозольные гранаты для блокирования ПТУР с инфракрасными ГСН.',
-        dateWord: ''
-    },
-    {
-        pic: '../pictures/pic1.jpg',
-        name: 'Планка Пикатинни',
-        desc: 'Система рельсового крепления для стрелкового оружия.',
-        dateWord: ''
-    },
-    {
-        pic: '../pictures/pic4.jpg',
-        name: 'Термодымовая аппаратура (ТДА).',
-        desc: 'Cистема постановки дымовых завес на танках, основанная на принципе испарения топлива с горячих деталей двигателя.',
-        dateWord: ''
-    },
-    {
-        pic: '../pictures/pic5.jpg',
-        name: 'Куликовская битва.',
-        desc: 'Крупное сражение между русским войском и войском Золотой Орды.',
-        dateWord: '8 сентября 1380 года.'
-    },
-    {
-        pic: '../pictures/scale_1200.webp',
-        name: 'Т-90М (Прорыв 3).',
-        desc: `
-            <ol class="list-decimal list-inside">
-                <li>Специальный короб для боеприпасов расположенный в задней части башни.</li>
-                <li>Дизельный мотор мощностью 1130лс.</li>
-                <li>Макс скорость - 60км/ч и запас хода 550км.</li>
-                <li>Имеется комлект "Накидка" которая состоит из многослойных чехлов, расположенных на корпусе и башне боевой машины.</li>
-                <li>Модульный комплекс динамической системы "Реликт".</li>
-                <li>Пушка высокой баллистики калибра 125мм.</li>
-                <li>Для дополнительного вооружения Т-90М оснастили ПТРК "Рефлекс-М" — комплексом управляемого танкового ракетного вооружения для борьбы с вражескими танками.</li>
-                <li>А также ПТРК "Инвар" предназначенная для аналогичных целей. У Т-90М есть два пулемёта калибров 7.62 мм и 12.7 мм.</li>
-                <li>Установлен цифровой комплекс управления огнем "Калина".</li>
-            </ol>
-        `,
-        dateWord: ''
-    },
-    {
-        pic: '../pictures/pravo.jpg',
-        name: 'Отмена крепостного права.',
-        desc: 'Александром II.',
-        dateWord: '3 марта 1861 года.'
-    },
-    {
-        pic: '../pictures/5-okeanov.jpg',
-        name: '5 океанов на земле.',
-        desc: `
-            <ol class="list-decimal">
-                <li>Тихий.</li>
-                <li>Атлантический.</li>
-                <li>Северный-ледовитый.</li>
-                <li>Индийский.</li>
-                <li>Южный.</li>
-            </ol>
-        `,
-        dateWord: ''
-    },
-    {
-        pic: '../pictures/materics.jpg',
-        name: '6 материков на земле.',
-        desc: `
-            <ol class="list-decimal">
-                <li>Северная Америка.</li>
-                <li>Южная Америка</li>
-                <li>Антарктида.</li>
-                <li>Африка.</li>
-                <li>Евразия.</li>
-                <li>Австралия</li>
-            </ol>
-            `,
-        dateWord: ''
-    },
-    {
-        pic: '../pictures/IAI_Harop_PAS_2013_01.jpg',
-        name: 'Барражирующий боеприпас.',
-        desc: 'Дрон-камикадзе.',
-        dateWord: ''
-    },
-    {
-        pic: '../pictures/gas.jpg',
-        name: 'Ирританты.',
-        desc: 'Группа веществ, вызывающих при попадании сильное местное раздражение слизистых оболочек, кожных покровов. Подразделяются на 2 основные группы: <br>Лакриматоры — вещества, вызывающие обильное слезотечение; <br>Стерниты — вещества, вызывающие неконтролируемое чихание и кашель.',
-        dateWord: ''
-    },
-    {
-        pic: '../pictures/vert.jpg',
-        name: 'БКО(бортовой комплекс обороны).',
-        desc: 'Предназначен для предупреждения экипажа о радиолокационном и лазерном облучении летательного аппарата, фактах пуска по нему управляемых ракет, а также для противодействия нацеленным на ЛА ракетам с радиолокационными и инфракрасными головками самонаведения.',
-        dateWord: ''
-    },
-    {
-        pic: '../pictures/Alabino220415part1-42.jpg',
-        name: 'ОТРК - оперативно-тактический ракетный комплекс.',
-        desc: 'Основное назначение ракетных комплексов «Искандер» — уничтожение систем ПВО и ПРО противника, а также важнейших объектов, прикрываемых ими, на дальностях до 500 км.<br> «Искандер-М» использует высотную (высота полёта — 50 км) сверхманёвренную (перегрузки — 20—30 g) квазибаллистическую ракету со стелс-технологиями, сбрасываемым модулем РЭБ и ложными мишенями с целью обхода систем ПРО и поражения защищаемых ими объектов на дальности до 500 км. <br><br> Комплекс в варианте комплектации «Искандер-К» использует крылатую ракету Р-500 со сверхнизкой траекторией полёта на высоте 6-7 м с огибанием рельефа местности.',
-        dateWord: ''
-    },
-    {
-        pic: '../pictures/BloomfieldAeolianHarp.jpg',
-        name: 'Эолова арфа, также воздушная а́рфа.',
-        desc: 'Инструмент, звучащий благодаря колеблющему струны ветру. Названа в честь Эола, мифического повелителя ветров.',
-        dateWord: ''
-    },
-    {
-        pic: '../pictures/Juancito2.png',
-        name: 'Мул.',
-        desc: 'Домашнее животное, помесь осла с кобылой.',
-        dateWord: ''
-    },
-    {
-        pic: '',
-        name: 'Крылатая ракета "Циркон".',
-        desc: `
-            Российская гиперзвуковая противокорабельная крылатая ракета.
-            Запускается с подводных лодок и с атомных ракетных крейсеров.<br>
-            <ul class="list-disc list-inside underline decoration-indigo-500">
-                <li>Скорость полёта: 10тыс/кмч.</li>
-                <li>Дальность полёта: 1000км.</li>
-            </ul>
-        `,
-        dateWord: ''
-    },
-    {
-        pic: '../pictures/gas2.jpg',
-        name: 'Светильный газ.',
-        desc: `
-            Смесь водорода (50 %), метана (34 %), угарного газа (8 %) и других горючих газов, получаемая при пиролизе каменного угля или нефти.
-            Светильный газ разработан немецким химиком Фридрихом Аккумом. Он применялся для освещения в газовых фонарях и в качестве топлива.
-        `,
-        dateWord: ''
-    },
-    {
-        pic: '../pictures/gp25.jpg',
-        name: 'ГП (Гранатомёты подствольные).',
-        desc: `
-        <ul class="list-disc list-inside underline decoration-indigo-500"">
-            <li>ГП-25 (Костёр) однозарядный 40-мм подствольный гранатомёт.</li>
-            <li>ГП-30 (Обувка) 40-мм подствольный гранатомёт, разработанный на основе конструкции ГП-25.</li>
-        </ul>
-        `,
-        dateWord: ''
-    }
-
-];
-
-
-// pic:  '<img src="../pictures/BloomfieldAeolianHarp.jpg" alt="img">',
 function words() {
-    console.log(WordsArr);
     if (WordsArr.length == 0) {
         location.reload();
     } else {
@@ -341,11 +48,6 @@ function words() {
         mainWord.classList.remove('blur');
         descWord.classList.remove('blur-sm');
         randomWords = randomInteger(1, 2);
-
-
-        // console.log(randomWords);
-
-
 
         if (randomWords == 1) {
             mainWord.classList.add('blur');
@@ -460,37 +162,6 @@ function logger() {
 }
 
 
-// function KrugozorFunc() {
-//     if (krugozor_words.length == 0) {
-//         location.reload();
-//     } else {
-//         dateWord.innerHTML = '';
-//         if (dateWord.style.display == 'block') {
-//             dateWord.style.display = 'none';
-//         }
-//         main.classList.add('animate__animated', 'animate__bounceIn', 'animate__fast');
-//         if ((krugozor_words.length - 1) != 0) {
-//             alert_info.innerHTML = krugozor_words.length - 1;
-//         } else {
-//             alert_info.innerHTML = 'Последняя';
-//         }
-//         let i = randomInteger(0, krugozor_words.length - 1);
-//         mainWord.innerHTML = krugozor_words[i].name;
-//         descWord.innerHTML = krugozor_words[i].desc;
-
-//         if (krugozor_words[i].dateWord.length > 0) {
-//             dateWord.style.display = 'block';
-//             dateWord.innerHTML = `${krugozor_words[i].dateWord}`;
-//         }
-//         krugozor_words.splice(i, 1);
-//         setTimeout(() => {
-//             main.classList.remove('animate__animated', 'animate__bounceIn', 'animate__fast');
-//         }, 800);
-//     }
-// }
-
-
-
 btn.addEventListener('click', () => {
     next.style.display = 'flex';
     if (select.value == 'Слова') {
@@ -536,15 +207,19 @@ btn.addEventListener('click', () => {
 // });
 
 
-// showWords.addEventListener('touchend', (e) => {
-//     e.preventDefault();
+showWords.addEventListener('touchend', (e) => {
+    e.preventDefault();
 
-//     if (select.value == 'Слова') {
-//         words();
-//     } else {
-//         logger();
-//     }  
-// });
+    console.log('dasdas');
+
+    if (select.value == 'Слова') {
+        words();
+    } else {
+        logger();
+    }  
+});
+
+
 descWord.addEventListener('click', (e) => {
     e.preventDefault();
     descWord.style.cursor = 'auto';
